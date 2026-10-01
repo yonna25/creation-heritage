@@ -12,3 +12,9 @@ Netlify Drop (app.netlify.com/drop : glisser le dossier), Cloudflare Pages ou Gi
 - Participants : ouvrir l'URL > « Ajouter à l'écran d'accueil » (Chrome propose aussi « Installer »).
 - Vous : ouvrir /admin.html, saisir la clé admin.
 - Groupes : renseigner les liens dans l'objet GROUPS de index.html.
+
+## Règle éditoriale biblique
+Tous les contenus de l'application doivent respecter une convention typographique uniforme : DIEU, CHRIST, YESHUA’H et les pronoms faisant référence à DIEU (IL, LUI, SON, SA, SES, TOI, TE…) sont écrits en majuscules ; Saint-Esprit s'écrit SAINT-ESPRIT et Père (désignant DIEU) PÈRE. « Jésus » et « Jésus-Christ » s'écrivent YESHUA’H. Cette règle s'applique à l'ensemble des contenus présents et futurs, sans exception.
+
+## Approfondissement guidé (étape Réflexion)
+Dans content.js, chaque niveau contient : r (question principale), d (2 à 3 questions d'approfondissement), rl (relance). Le bouton « Explorer » ouvre un panneau facultatif, sans rechargement ; la réponse saisie est conservée et rien ne bloque la progression. Les questions d'approfondissement ne sont pas stockées.
