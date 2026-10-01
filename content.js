@@ -77,3 +77,13 @@ L.forEach(l=>Object.assign(l,N[l.id]));
 const X=[
 // {n:"Pardon", ic:"🕊️", q:"Comment recevoir et donner le pardon ?", p:[["Éphésiens 4.32","Soyez bons les uns envers les autres..."]], r:"Qu'est-ce que le pardon de DIEU change pour toi ?", d:["Question 1 ?","Question 2 ?"]},
 ];
+
+// ===== MODULES =====
+// Chaque module regroupe des niveaux. Pour ajouter un module : l'ajouter dans M, puis ajouter ses niveaux dans L
+// avec m: numéro du module (0 = Module 1, 1 = Module 2…). Un niveau avec soon:true s'affiche « Bientôt disponible ».
+const M=[
+{n:"Module 1",t:"De la création à l'héritage"},
+{n:"Module 2",t:"Consécration"}
+];
+L.forEach(l=>l.m=0);
+L.push({id:"consecration",m:1,ic:"🕯️",n:"Consécration",soon:true});
