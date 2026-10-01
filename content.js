@@ -71,3 +71,9 @@ position:{nt:"POSITION",sq:"Quelle place DIEU m'a-t-IL donnée ?",vq:"Avec tes p
 heritage:{nt:"HÉRITAGE",sq:"Qu'est-ce que DIEU me donne et me réserve comme héritier ?",vq:"Avec tes propres mots, qu'est-ce que signifie « HÉRITAGE » en CHRIST ?",df:"Mon héritage, c'est ce que DIEU donne à SES enfants et ce qu'IL leur réserve. En CHRIST, l'enfant de DIEU est aussi héritier avec CHRIST.",sm:"Je vis aujourd'hui à partir de ce que DIEU me donne et me réserve."}
 };
 L.forEach(l=>Object.assign(l,N[l.id]));
+
+// Thèmes supplémentaires (liste déroulante « Thèmes »). Copier-coller un bloc pour en ajouter un.
+// n: nom · ic: émoji · q: question clé · p: passages [[référence, texte]] · r: réflexion · d: questions pour approfondir
+const X=[
+// {n:"Pardon", ic:"🕊️", q:"Comment recevoir et donner le pardon ?", p:[["Éphésiens 4.32","Soyez bons les uns envers les autres..."]], r:"Qu'est-ce que le pardon de DIEU change pour toi ?", d:["Question 1 ?","Question 2 ?"]},
+];
