@@ -18,3 +18,6 @@ Tous les contenus de l'application doivent respecter une convention typographiqu
 
 ## Approfondissement guidé (étape Réflexion)
 Dans content.js, chaque niveau contient : r (question principale), d (2 à 3 questions d'approfondissement), rl (relance). Le bouton « Explorer » ouvre un panneau facultatif, sans rechargement ; la réponse saisie est conservée et rien ne bloque la progression. Les questions d'approfondissement ne sont pas stockées.
+
+## Acquisition des six notions (v9)
+Dans content.js, chaque niveau contient aussi : nt (notion), sq (question simple), vq (question de vérification), df (définition de référence), sm (à retenir). Dans index.html, l'étape 7 « Ce que je dois maintenant comprendre » affiche la question, l'espace de reformulation (enregistré dans la réponse du participant sous la clé u), puis la définition de référence. La synthèse finale présente les six notions et leur progression.
