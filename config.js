@@ -1,2 +1,1 @@
-// Renseigner après création du projet Supabase (Project Settings > API). La clé "anon" est publique par conception.
-window.CFG={url:'',key:''};
+window.CFG={url:'https://lhnajcvhowrqknyryqri.supabase.co',key:'sb_publishable_HUnLgQMNb78GoOQ-EI8yNA_h0ktIT64'};

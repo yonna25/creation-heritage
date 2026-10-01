@@ -73,7 +73,7 @@ function summary(){const n=nDone();$.innerHTML=`<button class="back" onclick="ho
 function reset(){if(confirm('Effacer toute ta progression ?')){S={done:{}};save();home()}}
 let PID;try{PID=localStorage.getItem('ceh_id');if(!PID){PID=crypto.randomUUID();localStorage.setItem('ceh_id',PID)}}catch(x){PID=null}
 let tm;
-function sync(){const C=window.CFG;if(!C||!C.url||!PID)return;clearTimeout(tm);tm=setTimeout(async()=>{try{const r=await fetch(C.url+'/rest/v1/rpc/upsert_participant',{method:'POST',headers:{apikey:C.key,Authorization:'Bearer '+C.key,'Content-Type':'application/json'},body:JSON.stringify({p_id:PID,p_name:S.name||'',p_data:{done:S.done,p:S.p||{}}})});if(!r.ok)throw 0}catch(x){}},800)}
+function sync(){const C=window.CFG;if(!C||!C.url||!PID)return;clearTimeout(tm);tm=setTimeout(async()=>{try{const r=await fetch(C.url+'/rest/v1/rpc/upsert_participant',{method:'POST',headers:Object.assign({apikey:C.key,'Content-Type':'application/json'},C.key.startsWith('sb_')?{}:{Authorization:'Bearer '+C.key}),body:JSON.stringify({p_id:PID,p_name:S.name||'',p_data:{done:S.done,p:S.p||{}}})});if(!r.ok)throw 0}catch(x){}},800)}
 addEventListener('online',sync);
 if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js'));
 home();
