@@ -1,0 +1,14 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Admin — Participants</title>
+<style>body{font:16px/1.5 Georgia,serif;margin:0;background:#faf6ef;color:#2b2a28}main{max-width:720px;margin:auto;padding:18px}.c{background:#fff;border:1px solid #e5dccf;border-radius:12px;padding:14px;margin:10px 0}button,input{font:inherit;padding:10px 14px;border-radius:10px;border:1px solid #ccc}button{background:#9a5b2e;color:#fff;border:0;margin:4px 4px 4px 0}.m{color:#6f6a62;font-size:14px}</style></head><body><main>
+<h1>Participants</h1><div id="a"><input id="k" type="password" placeholder="Clé admin"><button onclick="load()">Voir</button></div><div id="o"></div></main>
+<script src="config.js"></script><script src="content.js"></script><script>
+const e=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));let R=[];
+async function load(){const o=document.getElementById('o'),C=window.CFG;o.textContent='Chargement…';
+try{const r=await fetch(C.url+'/rest/v1/rpc/admin_list',{method:'POST',headers:{apikey:C.key,Authorization:'Bearer '+C.key,'Content-Type':'application/json'},body:JSON.stringify({p_key:document.getElementById('k').value})});if(!r.ok)throw 0;R=await r.json()}catch(x){o.textContent='Accès refusé ou configuration manquante.';return}
+const st=L.map(l=>{const f=R.filter(r=>r.data.done&&r.data.done[l.id]);const q=l.z.map((z,k)=>{const a=f.filter(r=>(r.data.p[l.id].qa||[])[k]!=null);return a.length?Math.round(a.filter(r=>r.data.p[l.id].qa[k]==z[2]).length/a.length*100)+'%':'–'});return`<div class="c"><b>${l.ic} ${l.n}</b> · ${f.length} terminé(s)<div class="m">Réussite par question : ${q.join(' · ')}</div></div>`}).join('');
+const ps=R.map(r=>`<div class="c"><b>${e(r.name||'Anonyme')}</b> <span class="m">· ${Object.keys(r.data.done||{}).length}/6 · ${new Date(r.updated_at).toLocaleDateString('fr')}</span>`+L.filter(l=>r.data.done&&r.data.done[l.id]).map(l=>{const p=r.data.p[l.id];return`<p><b>${l.n}</b> (${p.sc}/${l.z.length})<br>Réflexion : ${e(p.r)}<br>Retient : ${e(p.s)}<br>Engagement : ${e(p.e)}</p>`}).join('')+'</div>').join('');
+o.innerHTML=`<h2>${R.length} participant(s)</h2><button onclick="csv()">⬇️ Export CSV</button><h2>Par niveau</h2>${st}<h2>Fiches</h2>${ps}`}
+function csv(){const q=s=>'"'+String(s==null?'':s).replace(/"/g,'""')+'"',rows=['participant,niveau,quiz,reflexion,synthese,engagement'];
+R.forEach(r=>L.forEach(l=>{if(r.data.done&&r.data.done[l.id]){const p=r.data.p[l.id];rows.push([q(r.name||r.id),q(l.n),p.sc,q(p.r),q(p.s),q(p.e)].join(','))}}));
+const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['\ufeff'+rows.join('\n')],{type:'text/csv'}));a.download='participants.csv';a.click()}
+</script></body></html>
