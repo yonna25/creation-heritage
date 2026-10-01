@@ -16,7 +16,7 @@ const L=[
  s:"Mon identité est reçue de Dieu, elle ne se gagne pas."},
 {id:'statut',ic:'📜',n:'Statut',q:"Quelle est ma condition devant Dieu ?",
  p:[["Romains 3.23","Car tous ont péché et sont privés de la gloire de Dieu."],["Romains 5.8","Mais Dieu prouve son amour envers nous, en ce que, lorsque nous étions encore des pécheurs, Christ est mort pour nous."]],
- r:"Qu'est-ce qui est difficile — ou libérateur — dans le fait de reconnaître sa propre condition devant Dieu ?",
+ r:"Qu'est-ce qui est difficile - ou libérateur - dans le fait de reconnaître sa propre condition devant Dieu ?",
  z:[["Selon Romains 3.23, qui a péché ?",["Seulement les autres","Tous","Personne"],1],["Vrai ou faux : Christ est mort pour nous après que nous nous sommes améliorés.",["Vrai","Faux"],1],["Pourquoi Romains 5.8 est-il une bonne nouvelle ?",["L'amour de Dieu précède mon mérite","Je dois d'abord me corriger","Le péché n'existe pas"],0]],
  s:"J'ai besoin de grâce, et Dieu me l'a donnée avant que je la mérite."},
 {id:'position',ic:'👑',n:'Position',q:"Quelle place ai-je en Christ ?",
