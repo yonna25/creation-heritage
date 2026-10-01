@@ -84,6 +84,7 @@ const X=[
 const M=[
 {n:"Module 1",t:"De la création à l'héritage"},
 {n:"Module 2",t:"Consécration"}
+// ,{n:"Module 3",t:"Titre du module"}
 ];
 L.forEach(l=>l.m=0);
 L.push({id:"consecration",m:1,ic:"🕯️",n:"Consécration",soon:true});
