@@ -53,10 +53,10 @@ else if(step==2)$.innerHTML=head(l,i,'Réflexion')+`<h2>${l.r}</h2><textarea id=
 else if(step==3){const z=l.z[qi];$.innerHTML=head(l,i,`Quiz ${qi+1}/${l.z.length}`)+`<h2>${z[0]}</h2>`+z[1].map((o,k)=>`<button class="sec opt" id="o${k}" onclick="choose(${k})">${o}</button>`).join('')+`<div class="fb" id="fb"></div><button id="b" disabled onclick="check()">Valider</button>`}
 else if(step==4)$.innerHTML=head(l,i,'Synthèse')+`<div class="syn">${l.s}</div><h2>En une phrase, qu'as-tu compris de ce niveau ?</h2><textarea id="t" placeholder="Ce que je retiens…">${e(P.s||'')}</textarea><button id="b" onclick="saveText('s',5)">Valider →</button>`;
 else if(step==5)$.innerHTML=head(l,i,'Engagement')+`<h2>Qu'est-ce que tu décides de faire à partir de ce que tu viens de comprendre ?</h2><textarea id="t" placeholder="Ma décision…">${e(P.e||'')}</textarea><button id="b" onclick="saveText('e',6)">Valider mon engagement →</button>`;
-else{const p=S.p[l.id],g=GROUPS[l.id];S.done[l.id]=1;S.p[l.id].sc=ans;save();
+else{const p=S.p[l.id],g=GR()[l.id]||{};S.done[l.id]=1;S.p[l.id].sc=ans;save();
 $.innerHTML=head(l,i,'Approfondissement')+`<h1>🎉 Niveau terminé</h1><div class="card"><b>Quiz :</b> ${ans}/${l.z.length}<br><br><b>Ce que tu retiens :</b><br>${e(p.s)}<br><br><b>Ton engagement :</b><br>${e(p.e)}</div><p class="mu">Compréhension, réflexion, engagement : le score n'est qu'un critère parmi d'autres.</p><h2>Veux-tu aller plus loin ?</h2>
 <button onclick="${i<5?`start(${i+1})`:'summary()'}">🔵 Continuer seul<br><small>Poursuivre le parcours</small></button>
-${g?`<a class="btn" style="background:#2f7d4f;text-decoration:none" href="${g}" target="_blank" rel="noopener">🟢 Rejoindre le groupe ${l.n}<br><small>Échanger et approfondir avec d'autres</small></a>`:`<button style="background:#2f7d4f" onclick="alert('Le lien du groupe ${l.n} sera bientôt disponible.')">🟢 Rejoindre le groupe ${l.n}<br><small>Échanger et approfondir avec d'autres</small></button>`}
+${grpBtns(g,l)}
 <button class="sec" onclick="home()">🟠 Revenir plus tard</button>`}
 window.scrollTo(0,0)}
 function go(n){step=n;render()}
@@ -72,6 +72,11 @@ b.textContent=qi+1>=L[cur].z.length?'Continuer →':'Question suivante →'}
 function summary(){const n=nDone();$.innerHTML=`<button class="back" onclick="home()">← Parcours</button><h1>Ma synthèse</h1><p class="mu">${n==6?'Tu as parcouru toute la route de la création à l\'héritage. Voici ce que tu retiens et ce que tu as décidé.':'Voici ce que tu retiens jusqu\'ici.'}</p>`+L.filter(l=>S.done[l.id]).map(l=>{const p=S.p[l.id];return`<div class="card"><b>${l.ic} ${l.n}</b> <span class="mu">· quiz ${p.sc}/${l.z.length}</span><p><i>${e(p.s)}</i></p><p class="mu">Engagement : ${e(p.e)}</p></div>`}).join('')+(n==6?`<div class="syn">« J'ai appris une question que je dois désormais me poser. J'ai pris un engagement. Et si je veux aller plus loin, je peux le faire avec d'autres. »</div>`:'')}
 function reset(){if(confirm('Effacer toute ta progression ?')){S={done:{}};save();home()}}
 let PID;try{PID=localStorage.getItem('ceh_id');if(!PID){PID=crypto.randomUUID();localStorage.setItem('ceh_id',PID)}}catch(x){PID=null}
+function GR(){try{return JSON.parse(localStorage.getItem('ceh_groups')||'{}')}catch(x){return{}}}
+const ok=u=>u&&u.startsWith('https://');
+function grpBtns(g,l){const t=ok(g.t),w=ok(g.w);if(!t&&!w)return`<button style="background:#2f7d4f" onclick="alert('Les groupes ${l.n} seront bientôt disponibles.')">🟢 Rejoindre un groupe<br><small>Bientôt disponible</small></button>`;
+return`<div class="mu" style="margin-top:14px">🟢 Rejoindre le groupe ${l.n} : échanger et approfondir avec d'autres</div>`+(t?`<a class="btn" style="background:#2b8bc7;text-decoration:none" href="${e(g.t)}" target="_blank" rel="noopener">✈️ Sur Telegram</a>`:'')+(w?`<a class="btn" style="background:#25a244;text-decoration:none" href="${e(g.w)}" target="_blank" rel="noopener">💬 Sur WhatsApp</a>`:'')}
+(async()=>{const C=window.CFG;if(!C||!C.url)return;try{const r=await fetch(C.url+'/rest/v1/rpc/get_groups',{method:'POST',headers:Object.assign({apikey:C.key,'Content-Type':'application/json'},C.key.startsWith('sb_')?{}:{Authorization:'Bearer '+C.key}),body:'{}'});if(r.ok)localStorage.setItem('ceh_groups',JSON.stringify(await r.json()))}catch(x){}})();
 let tm;
 function sync(){const C=window.CFG;if(!C||!C.url||!PID)return;clearTimeout(tm);tm=setTimeout(async()=>{try{const r=await fetch(C.url+'/rest/v1/rpc/upsert_participant',{method:'POST',headers:Object.assign({apikey:C.key,'Content-Type':'application/json'},C.key.startsWith('sb_')?{}:{Authorization:'Bearer '+C.key}),body:JSON.stringify({p_id:PID,p_name:S.name||'',p_data:{done:S.done,p:S.p||{}}})});if(!r.ok)throw 0}catch(x){}},800)}
 addEventListener('online',sync);
