@@ -1,3 +1,10 @@
+-- INSTALLATION COMPLÈTE (à exécuter UNE SEULE FOIS dans Supabase > SQL Editor > New query).
+-- 1) Remplace NOUVELLE_CLE (une seule fois, plus bas) par ta clé admin secrète : 12 caractères minimum.
+-- 2) Clique sur Run.
+
+create table if not exists participants(id uuid primary key,name text,data jsonb not null,updated_at timestamptz default now());
+alter table participants enable row level security;
+
 -- MISE À JOUR V2. Remplacer NOUVELLE_CLE (1 seule fois, ligne "insert into admin_config") par votre clé admin (12 caractères minimum).
 create table if not exists admin_config(id int primary key default 1 check(id=1),key_hash text not null);
 create table if not exists settings(key text primary key,value jsonb not null);
@@ -65,3 +72,20 @@ grant execute on function upsert_participant(uuid,text,jsonb),admin_list(text,in
 
 -- RÉCUPÉRER UNE CLÉ ADMIN PERDUE : connectez-vous à Supabase (vous en êtes propriétaire) > SQL Editor, puis exécutez :
 -- update admin_config set key_hash=encode(sha256(convert_to('MA_NOUVELLE_CLE','UTF8')),'hex');
+
+
+-- MISE À JOUR V3 (modules et niveaux gérés depuis l'admin). À exécuter une fois dans Supabase > SQL Editor.
+create or replace function get_catalog() returns jsonb language sql security definer set search_path=public as $$
+ select coalesce((select value from settings where key='catalog'),'{}'::jsonb) $$;
+
+create or replace function admin_set_catalog(p_key text,p_catalog jsonb) returns void language plpgsql security definer set search_path=public as $$
+begin
+ perform check_admin(p_key);
+ if length(p_catalog::text)>400000 then raise exception 'too large'; end if;
+ insert into settings(key,value) values('catalog',p_catalog) on conflict(key) do update set value=excluded.value;
+end $$;
+
+grant execute on function get_catalog(), admin_set_catalog(text,jsonb) to anon;
+
+-- Rafraîchit la liste des fonctions pour l'application (obligatoire).
+notify pgrst, 'reload schema';
