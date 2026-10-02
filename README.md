@@ -22,7 +22,7 @@ Dans content.js, chaque niveau contient : r (question principale), d (2 à 3 que
 ## Acquisition des six notions (v9)
 Dans content.js, chaque niveau contient aussi : nt (notion), sq (question simple), vq (question de vérification), df (définition de référence), sm (à retenir). Dans index.html, l'étape 7 « Ce que je dois maintenant comprendre » affiche la question, l'espace de reformulation (enregistré dans la réponse du participant sous la clé u), puis la définition de référence. La synthèse finale présente les six notions et leur progression.
 
-## Modules et niveaux (v16)
+## Modules et niveaux (v17)
 1. Dans Supabase > SQL Editor, exécuter une fois `supabase_v3.sql`.
 2. Ouvrir `admin.html`, entrer la clé admin, onglet « 📚 Modules » : créer / renommer / réordonner / masquer des modules, ajouter ou modifier des niveaux, puis « Enregistrer ». Aucun redéploiement n'est nécessaire.
 3. Dans l'application, l'onglet « Thèmes » liste les modules ; choisir un module affiche ses niveaux d'étude.

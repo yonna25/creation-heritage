@@ -74,8 +74,14 @@ L.forEach(l=>Object.assign(l,N[l.id]));
 
 // ===== MODULES (valeurs d'origine) =====
 // Les modules et niveaux se gèrent ensuite dans le tableau de bord admin (onglet Modules) : pas besoin de modifier ce fichier.
-const M0=[{n:"Module 1",t:"De la création à l'héritage",lv:L.map(l=>l.id)},{n:"Module 2",t:"Consécration",lv:[]}];
-const L0=L.slice(),M=[];
+// Niveaux à venir (titre + question clé, contenu à rédiger) : s'affichent « Bientôt disponible ».
+// Pour en activer un : admin > Modules > ✏️ puis remplir le contenu.
+const SOON=(pre,ic,a)=>a.map((x,i)=>({id:pre+(i+1),ic,n:x[0],q:x[1],soon:true}));
+const X2=SOON("naitre-","🕊️",[["J’ai besoin d’être sauvé","Pourquoi ai-je besoin d’être sauvé ?"],["DIEU m’aime","Que révèle l’amour de DIEU pour moi ?"],["YESHUA’H est venu pour moi","Qui est-IL et qu’a-t-IL fait pour moi ?"],["Je crois en LUI","Que signifie croire en YESHUA’H ?"],["Je reçois une vie nouvelle","Qu’est-ce que naître de nouveau ?"],["Je deviens enfant de DIEU","Qu’est-ce qui change dans mon identité et ma relation avec DIEU ?"],["Je commence à marcher avec LUI","Comment vivre et grandir dans cette nouvelle vie ?"]]);
+const X3=SOON("consecration-","🕯️",[["À QUI appartient réellement ma vie ?","Découvrir ce que change le fait de savoir d’où vient ma vie."],["Que signifie vraiment appartenir à DIEU ?","Comprendre ce que DIEU attend d’une vie qui LUI appartient."],["Que suis-je prêt à remettre entre les mains de DIEU ?","Découvrir ce que signifie réellement se donner à LUI."],["Qu’est-ce qui est consacré à DIEU ?","Apprendre à reconnaître et à respecter ce qui LUI appartient."],["Mes choix montrent-ils que je veux plaire à DIEU ?","Découvrir comment la consécration transforme mes décisions."],["Qu’est-ce qui peut me faire abandonner ma consécration ?","Comprendre comment demeurer fidèle à DIEU malgré les obstacles."],["Que peut faire DIEU avec une vie qui LUI est entièrement consacrée ?","Découvrir comment une vie donnée à DIEU peut devenir utile à SES desseins."]]);
+const X4=SOON("enfant-","🌳",[["Devenir enfant de DIEU n’est que le commencement","Qu’est-ce que DIEU attend de SES enfants ?"],["Je découvre mon identité en LUI","Qui suis-je maintenant que je suis enfant de DIEU ?"],["Je grandis dans la connaissance de DIEU","Comment apprendre à connaître CELUI qui m’a donné la vie ?"],["Je deviens semblable à CHRIST","Qu’est-ce que DIEU veut former en moi ?"],["Je porte du fruit","Comment ma nouvelle vie devient-elle visible ?"],["Je sers les desseins de DIEU","À quoi ma vie peut-elle servir dans SON Royaume ?"]]);
+const M0=[{n:"Module 1",t:"De la création à l'héritage",lv:L.map(l=>l.id)},{n:"Module 2",t:"Naître de nouveau",lv:X2.map(l=>l.id)},{n:"Module 3",t:"La consécration",lv:X3.map(l=>l.id)},{n:"Module 4",t:"Enfant de DIEU… et maintenant ?",lv:X4.map(l=>l.id)}];
+const L0=L.concat(X2,X3,X4),M=[];
 function applyCatalog(c){
  const E=t=>String(t).replace(/[&<>"]/g,k=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[k])),
   D=x=>typeof x=='string'?E(x):Array.isArray(x)?x.map(D):x,
