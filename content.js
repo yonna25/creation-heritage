@@ -80,15 +80,30 @@ const SOON=(pre,ic,a)=>a.map((x,i)=>({id:pre+(i+1),ic,n:x[0],q:x[1],soon:true}))
 const X2=SOON("naitre-","🕊️",[["J’ai besoin d’être sauvé","Pourquoi ai-je besoin d’être sauvé ?"],["DIEU m’aime","Que révèle l’amour de DIEU pour moi ?"],["YESHUA’H est venu pour moi","Qui est-IL et qu’a-t-IL fait pour moi ?"],["Je crois en LUI","Que signifie croire en YESHUA’H ?"],["Je reçois une vie nouvelle","Qu’est-ce que naître de nouveau ?"],["Je deviens enfant de DIEU","Qu’est-ce qui change dans mon identité et ma relation avec DIEU ?"],["Je commence à marcher avec LUI","Comment vivre et grandir dans cette nouvelle vie ?"]]);
 const X3=SOON("consecration-","🕯️",[["À QUI appartient réellement ma vie ?","Découvrir ce que change le fait de savoir d’où vient ma vie."],["Que signifie vraiment appartenir à DIEU ?","Comprendre ce que DIEU attend d’une vie qui LUI appartient."],["Que suis-je prêt à remettre entre les mains de DIEU ?","Découvrir ce que signifie réellement se donner à LUI."],["Qu’est-ce qui est consacré à DIEU ?","Apprendre à reconnaître et à respecter ce qui LUI appartient."],["Mes choix montrent-ils que je veux plaire à DIEU ?","Découvrir comment la consécration transforme mes décisions."],["Qu’est-ce qui peut me faire abandonner ma consécration ?","Comprendre comment demeurer fidèle à DIEU malgré les obstacles."],["Que peut faire DIEU avec une vie qui LUI est entièrement consacrée ?","Découvrir comment une vie donnée à DIEU peut devenir utile à SES desseins."]]);
 const X4=SOON("enfant-","🌳",[["Devenir enfant de DIEU n’est que le commencement","Qu’est-ce que DIEU attend de SES enfants ?"],["Je découvre mon identité en LUI","Qui suis-je maintenant que je suis enfant de DIEU ?"],["Je grandis dans la connaissance de DIEU","Comment apprendre à connaître CELUI qui m’a donné la vie ?"],["Je deviens semblable à CHRIST","Qu’est-ce que DIEU veut former en moi ?"],["Je porte du fruit","Comment ma nouvelle vie devient-elle visible ?"],["Je sers les desseins de DIEU","À quoi ma vie peut-elle servir dans SON Royaume ?"]]);
-const M0=[{n:"Module 1",t:"De la création à l'héritage",lv:L.map(l=>l.id)},{n:"Module 2",t:"Naître de nouveau",lv:X2.map(l=>l.id)},{n:"Module 3",t:"La consécration",lv:X3.map(l=>l.id)},{n:"Module 4",t:"Enfant de DIEU… et maintenant ?",lv:X4.map(l=>l.id)}];
-const L0=L.concat(X2,X3,X4),M=[];
+const X5=SOON("renoncement-","🔥",[["Tout ce que je fais plaît-il à DIEU ?", "Comment reconnaître les œuvres mortes ?"], ["Pourquoi dois-je abandonner certaines pratiques ?", "Qu’est-ce qui m’empêche de vivre pleinement pour DIEU ?"], ["Je laisse derrière moi mon ancienne vie", "Comment vivre le changement que DIEU attend de moi ?"]]);
+const X6=SOON("foi-","🛡️",[["Croire en DIEU, est-ce simplement croire qu’IL existe ?", "Que signifie réellement avoir foi en DIEU ?"], ["Sur quoi repose ma foi ?", "Comment reconnaître une foi fondée sur la Parole de DIEU ?"], ["Ma foi se voit-elle dans ma manière de vivre ?", "Comment la foi transforme-t-elle mes décisions et mes actions ?"]]);
+const X7=SOON("baptemes-","💧",[["Pourquoi plusieurs baptêmes dans la Bible ?", "Quels sont les différents baptêmes mentionnés dans les Écritures ?"], ["Que signifie être baptisé ?", "Que se passe-t-il réellement à travers le baptême ?"], ["Quelle est ma relation avec le baptême ?", "Que révèle le baptême sur ma nouvelle vie en CHRIST ?"]]);
+const X8=SOON("mains-","🙌",[["Pourquoi imposait-on les mains dans la Bible ?", "Que signifie ce geste dans la vie spirituelle ?"], ["Que peut-il se passer lorsqu'on impose les mains ?", "Quels sont les objectifs bibliques de l’imposition des mains ?"], ["Comment comprendre et pratiquer ce geste aujourd'hui ?", "Quelles sont les responsabilités et les précautions à connaître ?"]]);
+const X9=SOON("resurrection-","🌅",[["La mort est-elle vraiment la fin ?", "Que révèle la Bible sur la mort et la résurrection ?"], ["Que se passera-t-il après la mort ?", "Quelle espérance DIEU donne-t-IL à ceux qui croient en LUI ?"], ["Quel corps aurons-nous à la résurrection ?", "Que signifie ressusciter pour la vie éternelle ?"]]);
+const X10=SOON("jugement-","⚖️",[["Devant QUI devrai-je rendre compte de ma vie ?", "Pourquoi chaque être humain devra-t-il comparaître devant DIEU ?"], ["Que révèle le jugement de DIEU sur ma manière de vivre ?", "Quelle place occupent mes choix et mes œuvres ?"], ["Quelle sera ma destinée éternelle ?", "Que dit la Bible sur la vie éternelle et le jugement ?"]]);
+const M0=[{n:"Module 1",t:"De la création à l'héritage",lv:L.map(l=>l.id)},{n:"Module 2",t:"Naître de nouveau",lv:X2.map(l=>l.id)},{n:"Module 3",t:"La consécration",lv:X3.map(l=>l.id)},{n:"Module 4",t:"Enfant de DIEU… et maintenant ?",lv:X4.map(l=>l.id)},
+{n:"Module 5",t:"LE RENONCEMENT AUX ŒUVRES MORTES",lv:X5.map(l=>l.id)},
+{n:"Module 6",t:"LA FOI EN DIEU",lv:X6.map(l=>l.id)},
+{n:"Module 7",t:"LA DOCTRINE DES BAPTÊMES",lv:X7.map(l=>l.id)},
+{n:"Module 8",t:"L'IMPOSITION DES MAINS",lv:X8.map(l=>l.id)},
+{n:"Module 9",t:"LA RÉSURRECTION DES MORTS",lv:X9.map(l=>l.id)},
+{n:"Module 10",t:"LE JUGEMENT ÉTERNEL",lv:X10.map(l=>l.id)}];
+M0.forEach((m,i)=>m.id='m'+(i+1));
+const VX=[];
+const L0=L.concat(X2,X3,X4,X5,X6,X7,X8,X9,X10),M=[];
 function applyCatalog(c){
  const E=t=>String(t).replace(/[&<>"]/g,k=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[k])),
   D=x=>typeof x=='string'?E(x):Array.isArray(x)?x.map(D):x,
   base={};L0.forEach(l=>base[l.id]=l);
  const cl=(c&&c.levels)||{},mods=(c&&Array.isArray(c.modules)&&c.modules.length)?c.modules:M0;
  L.length=0;M.length=0;
- mods.forEach(m=>{if(m.hide)return;const k=M.length;M.push({n:E(m.n||''),t:E(m.t||'')});let n=0;
+ VX.length=0;((c&&c.verses)||[]).forEach(v=>{if(v&&v.ref&&v.t&&v.mod)VX.push({id:String(v.id||'').replace(/[^a-zA-Z0-9_-]/g,''),ref:String(v.ref),t:String(v.t),ver:v.ver||'',mod:v.mod,e:v.e||'',k:Array.isArray(v.k)?v.k:[],on:v.on!==false})});
+ mods.forEach((m,mi)=>{if(m.hide)return;const k=M.length;M.push({id:m.id||'m'+(mi+1),n:E(m.n||''),t:E(m.t||'')});let n=0;
   (m.lv||[]).forEach(id=>{const raw=cl[id]?Object.assign({},cl[id]):base[id];if(!raw)return;
    const l=cl[id]?Object.fromEntries(Object.entries(raw).map(([a,b])=>[a,D(b)])):Object.assign({},raw);
    l.id=String(id).replace(/[^a-zA-Z0-9_-]/g,'');l.m=k;if(l.d&&!l.rl)l.rl=l.r;L.push(l);n++});
