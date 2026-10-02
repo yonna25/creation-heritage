@@ -72,19 +72,19 @@ heritage:{nt:"HÉRITAGE",sq:"Qu'est-ce que DIEU me donne et me réserve comme h�
 };
 L.forEach(l=>Object.assign(l,N[l.id]));
 
-// Thèmes supplémentaires (liste déroulante « Thèmes »). Copier-coller un bloc pour en ajouter un.
-// n: nom · ic: émoji · q: question clé · p: passages [[référence, texte]] · r: réflexion · d: questions pour approfondir
-const X=[
-// {n:"Pardon", ic:"🕊️", q:"Comment recevoir et donner le pardon ?", p:[["Éphésiens 4.32","Soyez bons les uns envers les autres..."]], r:"Qu'est-ce que le pardon de DIEU change pour toi ?", d:["Question 1 ?","Question 2 ?"]},
-];
-
-// ===== MODULES =====
-// Chaque module regroupe des niveaux. Pour ajouter un module : l'ajouter dans M, puis ajouter ses niveaux dans L
-// avec m: numéro du module (0 = Module 1, 1 = Module 2…). Un niveau avec soon:true s'affiche « Bientôt disponible ».
-const M=[
-{n:"Module 1",t:"De la création à l'héritage"},
-{n:"Module 2",t:"Consécration"}
-// ,{n:"Module 3",t:"Titre du module"}
-];
-L.forEach(l=>l.m=0);
-L.push({id:"consecration",m:1,ic:"🕯️",n:"Consécration",soon:true});
+// ===== MODULES (valeurs d'origine) =====
+// Les modules et niveaux se gèrent ensuite dans le tableau de bord admin (onglet Modules) : pas besoin de modifier ce fichier.
+const M0=[{n:"Module 1",t:"De la création à l'héritage",lv:L.map(l=>l.id)},{n:"Module 2",t:"Consécration",lv:[]}];
+const L0=L.slice(),M=[];
+function applyCatalog(c){
+ const E=t=>String(t).replace(/[&<>"]/g,k=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[k])),
+  D=x=>typeof x=='string'?E(x):Array.isArray(x)?x.map(D):x,
+  base={};L0.forEach(l=>base[l.id]=l);
+ const cl=(c&&c.levels)||{},mods=(c&&Array.isArray(c.modules)&&c.modules.length)?c.modules:M0;
+ L.length=0;M.length=0;
+ mods.forEach(m=>{if(m.hide)return;const k=M.length;M.push({n:E(m.n||''),t:E(m.t||'')});let n=0;
+  (m.lv||[]).forEach(id=>{const raw=cl[id]?Object.assign({},cl[id]):base[id];if(!raw)return;
+   const l=cl[id]?Object.fromEntries(Object.entries(raw).map(([a,b])=>[a,D(b)])):Object.assign({},raw);
+   l.id=String(id).replace(/[^a-zA-Z0-9_-]/g,'');l.m=k;if(l.d&&!l.rl)l.rl=l.r;L.push(l);n++});
+  if(!n)L.push({id:"_bientot"+k,m:k,ic:"🕯️",n:E(m.t||''),soon:true})})}
+applyCatalog(null);
