@@ -63,9 +63,15 @@ Les anciens modules 2 à 10 (Naître de nouveau, La consécration, etc.) sont su
 ## Module 4 STATUT (v33)
 - 5 niveaux `statut-1` à `statut-5` (constante `SL`) : Pécheur (Romains 3.23), Grâce (Éphésiens 2.8-9), Racheté (Romains 3.24), Justifié (Romains 5.1), Réconcilié (2 Corinthiens 5.18).
 - Phrase : « Par la grâce, je suis racheté, justifié et réconcilié avec DIEU. » Transition : « Quelle place DIEU me donne-t-IL ? » vers Position.
-- L'ancien Statut (8 étapes) est supprimé. `CAT_V` = 33, cache `ceh-v33`. Restent à refondre : Position (module 5), Héritage (module 6).
+- L'ancien Statut (8 étapes) est supprimé. `CAT_V` = 33, cache `ceh-v33`. Position et Héritage ont été refondus ensuite (v34, v35).
 
 ## Module 5 POSITION (v34)
 - 5 niveaux `position-1` à `position-5` (constante `PL`) : Accepté (Éphésiens 1.6), Uni (Jean 15.5), Assis (Éphésiens 2.6), Membre (1 Corinthiens 12.27), Envoyé (2 Corinthiens 5.20).
 - Phrase : « En YESHUA’H, j'ai une place auprès de DIEU et dans SON corps. » Transition : « Qu'est-ce qui m'est réservé ? » vers Héritage.
-- L'ancien Position (8 étapes) est supprimé. `CAT_V` = 34, cache `ceh-v34`. Reste à refondre : Héritage (module 6).
+- L'ancien Position (8 étapes) est supprimé. `CAT_V` = 34, cache `ceh-v34`. Héritage refondu en v35.
+
+## Module 6 HÉRITAGE (v35)
+- 5 niveaux `heritage-1` à `heritage-5` (constante `HL`) : Héritier (Romains 8.17), Réservé (1 Pierre 1.4), Gage (Éphésiens 1.13-14), Déjà (Éphésiens 1.3), Partage (Lamentations 3.24).
+- Phrase : « Enfant de DIEU, je suis héritier : DIEU est mon plus grand trésor. » Dernier module : la finale n'a pas de module suivant, le bouton mène à la synthèse.
+- La synthèse affiche « Tu as parcouru toute la route de la création à l'héritage » quand tous les niveaux sont terminés.
+- Convention Esprit : SAINT-ESPRIT / ESPRIT en majuscules. L'ancien Héritage (8 étapes) et le tableau `N` (notions) sont supprimés : les 6 modules sont tous au format 5 niveaux. `CAT_V` = 35, cache `ceh-v35`.

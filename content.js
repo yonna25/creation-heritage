@@ -163,24 +163,42 @@ mkO(5,"position-5","🌍","Envoyé","Je suis l'ambassadeur de YESHUA’H.",[V_2C
  {t:"fin"}],PX)
 ];
 
-const L=[
-{id:"heritage",
- ic:"🎁",
- n:"Héritage",
- q:"Qu'est-ce qui m'est réservé ?",
- p:[["Romains 8.17", "Et si nous sommes enfants, nous sommes aussi héritiers : héritiers de DIEU, et cohéritiers de YESHUA’H."], ["1 Pierre 1.4", "Pour un héritage qui ne peut ni se corrompre, ni se souiller, ni se flétrir, réservé dans les cieux pour vous."]],
- r:"Si tu es enfant de DIEU et héritier avec YESHUA’H, comment cette vérité change-t-elle ta manière de vivre aujourd'hui ?",
- d:["Quelle différence y a-t-il entre travailler pour obtenir une place et vivre à partir d'une place reçue ?", "Mon avenir est-il uniquement déterminé par ce que je possède aujourd'hui ?", "Comment l'espérance de mon héritage influence-t-elle mes choix présents ?"],
- rl:"Sachant ce qui t'est donné et réservé en YESHUA’H, qu'est-ce que cela change dans ta manière de vivre aujourd'hui ?",
- z:[["Selon Romains 8.17, nous sommes…", ["des serviteurs sans droits", "héritiers avec YESHUA’H", "des invités temporaires"], 1], ["Vrai ou faux : l'héritage décrit en 1 Pierre 1.4 peut se corrompre.", ["Vrai", "Faux"], 1], ["Face à une épreuve, comment l'héritage t'aide-t-il ?", ["Il donne une espérance solide", "Il supprime toute difficulté", "Il est sans rapport avec ma vie"], 0]],
- s:"Ce que DIEU me réserve en YESHUA’H est sûr et durable : je vis avec espérance."}
+
+// ===== HÉRITAGE : module 6 = 5 niveaux (v35) =====
+const HX={rv:["Je suis héritier.","Mon héritage est gardé.","L'ESPRIT en est le gage.","J'en reçois déjà une part.","DIEU est mon partage."],tr:{t:"Tu as parcouru toute la route :",h:"🌿 De la création à l'héritage."},ti:"🎁 HÉRITAGE",ph:"Enfant de DIEU, je suis héritier : DIEU est mon plus grand trésor."};
+const V_R817=["Romains 8.17","Et si nous sommes enfants, nous sommes aussi héritiers : héritiers de DIEU, et cohéritiers de YESHUA’H, si toutefois nous souffrons avec LUI, afin d'être glorifiés avec LUI."],V_1P14=["1 Pierre 1.4","Pour un héritage qui ne peut ni se corrompre, ni se souiller, ni se flétrir, réservé dans les cieux pour vous."],V_E113=["Éphésiens 1.13-14","En LUI vous aussi, après avoir entendu la parole de la vérité, l'Évangile de votre salut, en LUI vous avez cru et vous avez été scellés du SAINT-ESPRIT qui avait été promis, lequel est un gage de notre héritage, pour la rédemption de ceux que DIEU s'est acquis, à la louange de SA gloire."],V_E13=["Éphésiens 1.3","Béni soit DIEU, le PÈRE de notre SEIGNEUR YESHUA’H, qui nous a bénis de toutes sortes de bénédictions spirituelles dans les lieux célestes en YESHUA’H !"],V_LA324=["Lamentations 3.24","L'Éternel est mon partage, dit mon âme ; c'est pourquoi je veux espérer en LUI."];
+const HL=[
+mkO(1,"heritage-1","🏡","Héritier","Enfant de DIEU, je suis aussi héritier.",[V_R817],"Je suis héritier parce que je suis enfant.",[
+ {t:"in",ic:"🎁",h:"5 niveaux, 2 minutes chacun",tx:"Qu'est-ce qui m'est réservé ?\n\nChaque niveau : une idée, une Parole, une question, une action.\nTu avances à ton rythme et tu peux t'arrêter à la fin de chaque niveau.",chn:["HÉRITIER","RÉSERVÉ","GAGE","DÉJÀ","PARTAGE"],b:"Commencer →"},
+ {t:"idee",big:"Enfant de DIEU, je suis aussi héritier.",tx:"Parce que je suis enfant de DIEU, je suis aussi héritier : héritier de DIEU, avec YESHUA’H.",v:[V_R817]},
+ {t:"qr",k:"h1",q:"Un enfant reçoit l'héritage de ses parents sans l'avoir gagné. Qu'est-ce qui fait de lui un héritier ?",o:[["Ses efforts","Un héritage ne se gagne pas, il se reçoit. Romains 8.17 : si nous sommes enfants, nous sommes aussi héritiers.",0],["Le fait d'être leur enfant","Oui. Je suis héritier parce que je suis enfant.",1]],r:"Je suis héritier parce que je suis enfant."},
+ {t:"bl",k:"e1",free:1,h:"✋ Mon action",pre:"DIEU, merci de me recevoir comme héritier. Je veux TE dire :",post:"",ph:"merci pour…"},
+ {t:"cel",r:"Je suis héritier parce que je suis enfant."}],HX),
+mkO(2,"heritage-2","🔐","Réservé","Mon héritage est gardé pour moi.",[V_1P14],"Ce que DIEU garde pour moi ne se perd pas.",[
+ {t:"idee",big:"Mon héritage est gardé pour moi.",tx:"Mon héritage ne peut ni se corrompre, ni se souiller, ni se flétrir : DIEU le garde pour moi dans les cieux.",v:[V_1P14]},
+ {t:"qr",k:"h2",q:"Un trésor est dans un coffre-fort, un autre est laissé dehors. Lequel est sûr ?",o:[["Celui qui est laissé dehors","Ce qui est laissé dehors peut se perdre. 1 Pierre 1.4 parle d'un héritage gardé dans les cieux.",0],["Celui qui est dans le coffre-fort","Oui. Ce que DIEU garde pour moi ne se perd pas.",1]],r:"Ce que DIEU garde pour moi ne se perd pas."},
+ {t:"bl",k:"e2",free:1,h:"✋ Mon action",pre:"Je suis en paix aujourd'hui parce que DIEU garde :",post:"",ph:"mon avenir, ma vie…"},
+ {t:"cel",r:"Ce que DIEU garde pour moi ne se perd pas."}],HX),
+mkO(3,"heritage-3","🧾","Gage","Le SAINT-ESPRIT me garantit mon héritage.",[V_E113],"L'ESPRIT est l'acompte : le reste viendra.",[
+ {t:"idee",big:"Le SAINT-ESPRIT me garantit mon héritage.",tx:"DIEU m'a donné SON ESPRIT comme gage : un acompte qui garantit que le reste viendra.",v:[V_E113]},
+ {t:"qr",k:"h3",q:"Un acompte garantit qu'un achat sera honoré. Qu'est-ce qui te garantit les promesses de DIEU ?",o:[["Mes efforts","Mes efforts changent. Éphésiens 1.14 dit que l'ESPRIT est un gage, une garantie qui vient de DIEU.",0],["Mes sentiments du moment","Mes sentiments changent aussi. Éphésiens 1.14 dit que l'ESPRIT est un gage, une garantie qui vient de DIEU.",0],["Le SAINT-ESPRIT que DIEU m'a donné","Oui. L'ESPRIT est l'acompte : le reste viendra.",1]],r:"L'ESPRIT est l'acompte : le reste viendra."},
+ {t:"bl",k:"e3",free:1,h:"✋ Mon action",pre:"Je remercie DIEU de m'avoir donné SON ESPRIT, qui :",post:"",ph:"me guide, me console…"},
+ {t:"cel",r:"L'ESPRIT est l'acompte : le reste viendra."}],HX),
+mkO(4,"heritage-4","☀️","Déjà","J'en reçois déjà une part aujourd'hui.",[V_E13],"Mon héritage commence aujourd'hui.",[
+ {t:"idee",big:"J'en reçois déjà une part aujourd'hui.",tx:"Je n'attends pas tout pour plus tard : DIEU m'a déjà béni de toutes sortes de bénédictions spirituelles en YESHUA’H.",v:[V_E13]},
+ {t:"qr",k:"h4",q:"Un héritage est-il seulement pour plus tard, ou une partie est-elle déjà à toi ?",o:[["Seulement pour plus tard","Éphésiens 1.3 dit que DIEU nous a déjà bénis de toutes sortes de bénédictions spirituelles.",0],["Une partie est déjà à moi","Oui. Mon héritage commence aujourd'hui.",1]],r:"Mon héritage commence aujourd'hui."},
+ {t:"bl",k:"e4",free:1,h:"✋ Mon action",pre:"Aujourd'hui, je reçois déjà de DIEU :",post:"",ph:"la paix, la force…"},
+ {t:"cel",r:"Mon héritage commence aujourd'hui."}],HX),
+mkO(5,"heritage-5","💛","Partage","Mon plus grand héritage, c'est DIEU LUI-MÊME.",[V_LA324],"Le meilleur de mon héritage, c'est DIEU.",[
+ {t:"idee",big:"Mon plus grand héritage, c'est DIEU LUI-MÊME.",tx:"Au-delà de tout ce que DIEU me donne, ma plus grande part, c'est DIEU LUI-MÊME.",v:[V_LA324]},
+ {t:"qr",k:"h5",q:"Si tu recevais tout sauf DIEU, que te manquerait-il ?",o:[["L'essentiel"],["Quelque chose, mais je ne sais pas quoi"],["Pas grand-chose, honnêtement"]],fb:"Merci pour ta franchise : Lamentations 3.24 dit que l'Éternel est mon partage, ma part la plus précieuse.",r:"Le meilleur de mon héritage, c'est DIEU."},
+ {t:"bl",k:"e5",free:1,h:"✋ Mon action",pre:"DIEU, mon plus grand trésor, c'est TOI parce que :",post:"",ph:"je suis aimé, je suis en sécurité…"},
+ {t:"fin"}],HX)
 ];
 
-// Acquisition des six notions : nt = notion, sq = question simple, vq = question de vérification, df = définition de référence, sm = à retenir
-const N={
-heritage:{nt:"HÉRITAGE",sq:"Qu'est-ce qui m'est réservé ?",vq:"Avec tes propres mots, qu'est-ce que signifie « HÉRITAGE » en YESHUA’H ?",df:"Mon héritage, c'est ce que DIEU donne à SES enfants et ce qu'IL leur réserve. En YESHUA’H, l'enfant de DIEU est aussi héritier avec YESHUA’H.",sm:"Je vis aujourd'hui à partir de ce que DIEU me donne et me réserve."}
-};
-L.forEach(l=>Object.assign(l,N[l.id]));
+const L=[];
+
+
 
 // ===== MODULES (valeurs d'origine) =====
 // Les modules et niveaux se gèrent ensuite dans le tableau de bord admin (onglet Modules) : pas besoin de modifier ce fichier.
@@ -196,11 +214,11 @@ const X7=SOON("baptemes-","💧",[["Pourquoi plusieurs baptêmes dans la Bible ?
 const X8=SOON("mains-","🙌",[["Pourquoi imposait-on les mains dans la Bible ?", "Que signifie ce geste dans la vie spirituelle ?"], ["Que peut-il se passer lorsqu'on impose les mains ?", "Quels sont les objectifs bibliques de l’imposition des mains ?"], ["Comment comprendre et pratiquer ce geste aujourd'hui ?", "Quelles sont les responsabilités et les précautions à connaître ?"]]);
 const X9=SOON("resurrection-","🌅",[["La mort est-elle vraiment la fin ?", "Que révèle la Bible sur la mort et la résurrection ?"], ["Que se passera-t-il après la mort ?", "Quelle espérance DIEU donne-t-IL à ceux qui croient en LUI ?"], ["Quel corps aurons-nous à la résurrection ?", "Que signifie ressusciter pour la vie éternelle ?"]]);
 const X10=SOON("jugement-","⚖️",[["Devant QUI devrai-je rendre compte de ma vie ?", "Pourquoi chaque être humain devra-t-il comparaître devant DIEU ?"], ["Que révèle le jugement de DIEU sur ma manière de vivre ?", "Quelle place occupent mes choix et mes œuvres ?"], ["Quelle sera ma destinée éternelle ?", "Que dit la Bible sur la vie éternelle et le jugement ?"]]);
-const CAT_V=34;
-const M0=[{n:"Module 1",t:"Origine",q:"Suis-je seulement le résultat de la vie biologique, ou ai-je été créé par DIEU ?",lv:OL.map(l=>l.id)},{n:"Module 2",t:"Relation",q:"Qui est DIEU pour moi ?",lv:RL.map(l=>l.id)},{n:"Module 3",t:"Identité",q:"Qui suis-je en DIEU ?",lv:IL.map(l=>l.id)},{n:"Module 4",t:"Statut",q:"Quelle est ma condition devant DIEU ?",lv:SL.map(l=>l.id)},{n:"Module 5",t:"Position",q:"Quelle place DIEU me donne-t-IL ?",lv:PL.map(l=>l.id)},{n:"Module 6",t:"Héritage",q:"Qu'est-ce qui m'est réservé ?",lv:[]}];
+const CAT_V=35;
+const M0=[{n:"Module 1",t:"Origine",q:"Suis-je seulement le résultat de la vie biologique, ou ai-je été créé par DIEU ?",lv:OL.map(l=>l.id)},{n:"Module 2",t:"Relation",q:"Qui est DIEU pour moi ?",lv:RL.map(l=>l.id)},{n:"Module 3",t:"Identité",q:"Qui suis-je en DIEU ?",lv:IL.map(l=>l.id)},{n:"Module 4",t:"Statut",q:"Quelle est ma condition devant DIEU ?",lv:SL.map(l=>l.id)},{n:"Module 5",t:"Position",q:"Quelle place DIEU me donne-t-IL ?",lv:PL.map(l=>l.id)},{n:"Module 6",t:"Héritage",q:"Qu'est-ce qui m'est réservé ?",lv:HL.map(l=>l.id)}];
 M0.forEach((m,i)=>m.id='m'+(i+1));
 const VX=[];
-const L0=OL.concat(RL,IL,SL,PL,L,X2,X3,X4,X5,X6,X7,X8,X9,X10),M=[];
+const L0=OL.concat(RL,IL,SL,PL,HL,L,X2,X3,X4,X5,X6,X7,X8,X9,X10),M=[];
 function applyCatalog(c){
  const E=t=>String(t).replace(/[&<>"]/g,k=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[k])),
   D=x=>typeof x=='string'?E(x):Array.isArray(x)?x.map(D):x,
