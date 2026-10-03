@@ -1,51 +1,39 @@
-// ===== ORIGINE : 5 marches (v28) =====
+// ===== ORIGINE : module 1 = 5 niveaux (v29) =====
 // Règle : une idée forte → une Parole → une question → une action → une célébration.
-// Types d'écrans : in (accueil), idee (idée + à comprendre + Parole), qr (question + « À retenir »),
-// bl (action : phrase à compléter), cel (célébration + continuer / pause), fin (révélation + transition).
-const OJ={
-rv:["Je viens de DIEU.","Mon identité commence par ce qu'IL dit de moi.","Ce que j'ai m'est confié.","Ma vie a une direction.","Je ne suis pas ma propre source."],
-tr:{t:"Si DIEU est mon Créateur et que ma vie vient de LUI, une nouvelle question se pose :",h:"❤️ Quelle relation suis-je appelé à avoir avec LUI ?",b:"Découvrir RELATION →"},
-ch:[
-{id:"dep",ic:"🚶",t:"DÉPART",s:[
- {t:"in",ic:"🚶",h:"5 marches, 2 minutes chacune",tx:"Chaque marche : une idée, une Parole, une question, une action.\nTu avances à ton rythme et tu peux t'arrêter à la fin de chaque marche.",chn:["SOURCE","IDENTITÉ","RESPONSABILITÉ","MISSION","RETOUR À LA SOURCE"],b:"Commencer la marche 1 →"}]},
-{id:"m1",n:1,ic:"🌱",t:"SOURCE",s:[
+// Chaque niveau = 1 chapitre ; types d'écrans : in, idee, qr, bl, cel (fin de niveau), fin (finale du module).
+const OTR={t:"Si DIEU est mon Créateur et que ma vie vient de LUI, une nouvelle question se pose :",h:"❤️ Quelle relation suis-je appelé à avoir avec LUI ?",b:"Voir ma synthèse →"};
+const ORV=["Je viens de DIEU.","Mon identité commence par ce qu'IL dit de moi.","Ce que j'ai m'est confié.","Ma vie a une direction.","Je ne suis pas ma propre source."];
+const mkO=(n,id,ic,t,q,v,r,ch)=>({id:id,ic:ic,n:t,q:q,p:v,s:r,jy:{rv:ORV,tr:OTR,ch:[{id:'c'+n,ic:ic,t:t,s:ch}]}});
+const OL=[
+mkO(1,"origine-1","🌱","Source","Ma vie vient de DIEU.",[["Genèse 2.7","L'Éternel DIEU forma l'homme de la poussière de la terre, IL souffla dans ses narines un souffle de vie, et l'homme devint un être vivant."]],"Ce que DIEU crée, IL lui donne aussi un sens.",[
+ {t:"in",ic:"🚶",h:"5 niveaux, 2 minutes chacun",tx:"Chaque niveau : une idée, une Parole, une question, une action.\nTu avances à ton rythme et tu peux t'arrêter à la fin de chaque niveau.",chn:["SOURCE","IDENTITÉ","RESPONSABILITÉ","MISSION","RETOUR À LA SOURCE"],b:"Commencer →"},
  {t:"idee",big:"Ma vie vient de DIEU.",tx:"DIEU m'a créé. Ma vie ne commence donc pas avec mes propres choix : elle commence avec LUI.",v:[["Genèse 2.7","L'Éternel DIEU forma l'homme de la poussière de la terre, IL souffla dans ses narines un souffle de vie, et l'homme devint un être vivant."]]},
  {t:"qr",k:"q1",q:"Si ma vie vient de DIEU, est-ce que je peux décider seul de son sens ?",o:[["Oui, c'est ma vie : je décide seul","C'est une réaction courante. Mais une vie que je n'ai pas choisie de recevoir peut-elle avoir un sens que je me donne seul ?",0],["Non : DIEU a créé ma vie, IL lui donne aussi un sens","Oui. Ce qui est reçu porte déjà une intention.",1],["Je ne sais pas encore","C'est un très bon point de départ : la suite va t'aider.",2]],r:"Ce que DIEU crée, IL lui donne aussi un sens."},
  {t:"bl",k:"a1",free:1,h:"✋ Mon action",pre:"Merci DIEU pour",post:".",ph:"ma santé, ma famille…"},
- {t:"cel",r:"Ce que DIEU crée, IL lui donne aussi un sens."}]},
-{id:"m2",n:2,ic:"🪞",t:"IDENTITÉ",s:[
+ {t:"cel",r:"Ce que DIEU crée, IL lui donne aussi un sens."}]),
+mkO(2,"origine-2","🪞","Identité","Mon identité commence par ce que DIEU dit de moi.",[["Genèse 1.27","DIEU créa l'homme à SON image, IL le créa à l'image de DIEU, IL créa l'homme et la femme."]],"Un regard peut m'évaluer, seul DIEU me définit.",[
  {t:"idee",big:"Mon identité commence par ce que DIEU dit de moi.",tx:"J'ai été créé à SON image.\nMa valeur ne naît ni du regard des autres, ni de mes résultats.",v:[["Genèse 1.27","DIEU créa l'homme à SON image, IL le créa à l'image de DIEU, IL créa l'homme et la femme."]]},
  {t:"qr",k:"q2",tx:"Quelqu'un te dit :",th:"« Tu es nul. »",q:"Qui décide de ce que tu vaux ?",o:[["Cette personne, si elle le pense vraiment","Une opinion, même sincère, reste une opinion.",0],["Mes résultats","Une valeur qui dépend des résultats monte et descend avec eux.",0],["DIEU, qui m'a créé","Oui. Voilà une base qui ne bouge pas.",1]],r:"Un regard peut m'évaluer, seul DIEU me définit."},
  {t:"bl",k:"a2",free:1,h:"✋ Mon action",pre:"Quand je pense « je suis nul », je me rappelle :",post:"",ph:"j'ai été créé à SON image"},
- {t:"cel",r:"Un regard peut m'évaluer, seul DIEU me définit."}]},
-{id:"m3",n:3,ic:"🎒",t:"RESPONSABILITÉ",s:[
+ {t:"cel",r:"Un regard peut m'évaluer, seul DIEU me définit."}]),
+mkO(3,"origine-3","🎒","Responsabilité","Ce que j'ai m'est confié.",[["Genèse 2.15","L'Éternel DIEU prit l'homme, et le plaça dans le jardin d'Éden pour le cultiver et pour le garder."]],"Je ne possède pas, je gère.",[
  {t:"idee",big:"Ce que j'ai m'est confié.",tx:"DIEU ne m'a pas seulement donné la vie : IL m'a confié des choses à cultiver et à garder.",v:[["Genèse 2.15","L'Éternel DIEU prit l'homme, et le plaça dans le jardin d'Éden pour le cultiver et pour le garder."]]},
  {t:"qr",k:"q3",tx:"Tu reçois beaucoup d'argent.",q:"Est-ce « mon argent » ou « ce qui m'est confié » ?",o:[["C'est mon argent, j'en fais ce que je veux","Tenir quelque chose en main ne veut pas dire en être le propriétaire.",0],["Cela m'est confié : j'en prends soin","Exactement. Recevoir en confiance, ce n'est pas posséder.",1]],r:"Je ne possède pas, je gère."},
  {t:"bl",k:"a3",free:1,h:"✋ Mon action",pre:"Cette semaine, je prends mieux soin de",post:".",ph:"mon temps, mon corps…"},
- {t:"cel",r:"Je ne possède pas, je gère."}]},
-{id:"m4",n:4,ic:"🧭",t:"MISSION",s:[
+ {t:"cel",r:"Je ne possède pas, je gère."}]),
+mkO(4,"origine-4","🧭","Mission","Ma vie a une direction.",[["Genèse 1.28","DIEU les bénit, et DIEU leur dit : Soyez féconds, multipliez, remplissez la terre, et l'assujettissez ; dominez sur les poissons de la mer, sur les oiseaux du ciel, et sur tout animal qui se meut sur la terre."]],"DIEU ne donne pas seulement la vie : IL confie quelque chose à accomplir.",[
  {t:"idee",big:"Ma vie a une direction.",tx:"Dès le commencement, DIEU bénit l'homme et lui parle d'avancer, de porter du fruit.",v:[["Genèse 1.28","DIEU les bénit, et DIEU leur dit : Soyez féconds, multipliez, remplissez la terre, et l'assujettissez ; dominez sur les poissons de la mer, sur les oiseaux du ciel, et sur tout animal qui se meut sur la terre."]]},
  {t:"qr",k:"q4",tx:"Deux personnes partent marcher.\nLa première avance sans savoir où elle va.\nLa seconde connaît sa destination.",q:"Laquelle sait où elle va ?",o:[["La première","Elle avance, mais marcher n'est pas la même chose que se diriger.",0],["La seconde","Oui : chacun de ses pas a un sens.",1]],r:"DIEU ne donne pas seulement la vie : IL confie quelque chose à accomplir."},
  {t:"bl",k:"a4",free:1,h:"✋ Mon action",pre:"Une décision qui va dans cette direction :",post:"",ph:"je décide de…"},
- {t:"cel",r:"DIEU ne donne pas seulement la vie : IL confie quelque chose à accomplir."}]},
-{id:"m5",n:5,ic:"🔄",t:"RETOUR À LA SOURCE",s:[
+ {t:"cel",r:"DIEU ne donne pas seulement la vie : IL confie quelque chose à accomplir."}]),
+mkO(5,"origine-5","🔄","Retour à la source","Quand je décide seul de ce qui est bon, j'oublie d'où je viens.",[["Genèse 3.1","Il dit à la femme : DIEU a-t-IL réellement dit : Vous ne mangerez pas de tous les arbres du jardin ?"],["Genèse 3.5","Mais DIEU sait que, le jour où vous en mangerez, vos yeux s'ouvriront, et que vous serez comme des dieux, connaissant le bien et le mal."]],"Je ne suis pas ma propre source.",[
  {t:"idee",big:"Quand je décide seul de ce qui est bon, j'oublie d'où je viens.",tx:"Le serpent sème d'abord un doute sur la Parole de DIEU, puis propose : décide toi-même de ce qui est bon.",v:[["Genèse 3.1","Il dit à la femme : DIEU a-t-IL réellement dit : Vous ne mangerez pas de tous les arbres du jardin ?"],["Genèse 3.5","Mais DIEU sait que, le jour où vous en mangerez, vos yeux s'ouvriront, et que vous serez comme des dieux, connaissant le bien et le mal."]]},
  {t:"qr",k:"q5",q:"Dans quel domaine est-ce que je vis comme si j'étais ma propre origine ?",o:[["Mon identité"],["Mes choix"],["Mon argent"],["Mes relations"],["Mon avenir"],["Mes réactions"]],fb:"Merci pour ta franchise : tu n'as pas à tout changer aujourd'hui, un premier pas suffit.",r:"Je ne suis pas ma propre source."},
- {t:"bl",k:"a5",free:1,h:"✋ Mon action",pre:"Quand",post:", je me rappelle : je viens de DIEU.",ph:"je décide seul…"}]},
-{id:"mo",ic:"🌱",t:"MON ORIGINE",s:[{t:"fin"}]}
-]};
+ {t:"bl",k:"a5",free:1,h:"✋ Mon action",pre:"Quand",post:", je me rappelle : je viens de DIEU.",ph:"je décide seul…"},
+ {t:"fin"}])
+];
 
 const L=[
-{id:"origine",
- ic:"🌱",
- n:"Origine",
- q:"D'où est-ce que je viens ?",
- p:[["Genèse 1.27", "DIEU créa l'homme à SON image, IL le créa à l'image de DIEU, IL créa l'homme et la femme."], ["Psaume 139.13-14", "C'est TOI qui as formé mes reins, qui m'as tissé dans le sein de ma mère. Je TE loue de ce que je suis une créature si merveilleuse."], ["Genèse 2.7", "L'Éternel DIEU forma l'homme de la poussière de la terre, IL souffla dans ses narines un souffle de vie, et l'homme devint un être vivant."], ["Genèse 1.26", "Puis DIEU dit : Faisons l'homme à NOTRE image, selon NOTRE ressemblance, et qu'il domine sur les poissons de la mer, sur les oiseaux du ciel, sur le bétail, sur toute la terre, et sur tous les reptiles qui rampent sur la terre."], ["Genèse 2.15", "L'Éternel DIEU prit l'homme, et le plaça dans le jardin d'Éden pour le cultiver et pour le garder."], ["Genèse 1.28", "DIEU les bénit, et DIEU leur dit : Soyez féconds, multipliez, remplissez la terre, et l'assujettissez ; dominez sur les poissons de la mer, sur les oiseaux du ciel, et sur tout animal qui se meut sur la terre."]],
- r:"Si DIEU est à l'origine de ta vie, comment cela change-t-il ta manière de te voir et de considérer ton existence ?",
- d:["Suis-je simplement le résultat d'une existence biologique ?", "Ma vie a-t-elle une origine et une intention ?", "Est-ce que je m'appartiens entièrement ?"],
- rl:"Si DIEU est à l'origine de ta vie, qu'est-ce que cela change dans ta façon de considérer ton existence ?",
- s:"Je ne me suis pas créé moi-même : je viens de DIEU. IL est la source de ma vie, de mon identité, de ma responsabilité et de ma mission.",
- jy:OJ},
 {id:"relation",
  ic:"❤️",
  n:"Relation",
@@ -100,7 +88,6 @@ const L=[
 
 // Acquisition des six notions : nt = notion, sq = question simple, vq = question de vérification, df = définition de référence, sm = à retenir
 const N={
-origine:{nt:"ORIGINE",sq:"D'où est-ce que je viens ?",vq:"Avec tes propres mots, qu'est-ce que signifie « ORIGINE » ?",df:"Mon ORIGINE, c'est d'où je viens et de qui je viens. Je ne me suis pas créé moi-même : ma vie vient de DIEU. Cette source détermine mon identité, ma responsabilité, ma mission et ma manière de vivre.",sm:"Je viens de DIEU : ma vie a une source, une identité, des responsabilités et une direction."},
 relation:{nt:"RELATION",sq:"Avec QUI suis-je en relation ?",vq:"Avec tes propres mots, qu'est-ce qu'une relation avec DIEU ?",df:"Une relation avec DIEU, c'est vivre en lien avec LUI, apprendre à LE connaître, L'écouter, LUI parler et marcher avec LUI.",sm:"DIEU désire que je LE connaisse personnellement."},
 identite:{nt:"IDENTITÉ",sq:"Qui suis-je ?",vq:"Avec tes propres mots, qu'est-ce que signifie « IDENTITÉ » ?",df:"Mon identité, c'est qui je suis. Elle ne dépend pas seulement de ce que je fais ou de ce que les autres pensent de moi.",sm:"En CHRIST, DIEU me dit qui je suis."},
 statut:{nt:"STATUT",sq:"Quelle est ma condition devant DIEU ?",vq:"Avec tes propres mots, qu'est-ce que signifie « STATUT » devant DIEU ?",df:"Mon statut, c'est la condition et la place que j'ai devant DIEU. En CHRIST, DIEU me donne une nouvelle condition et une nouvelle relation avec LUI.",sm:"Par la grâce, DIEU change ma condition devant LUI."},
@@ -123,21 +110,16 @@ const X7=SOON("baptemes-","💧",[["Pourquoi plusieurs baptêmes dans la Bible ?
 const X8=SOON("mains-","🙌",[["Pourquoi imposait-on les mains dans la Bible ?", "Que signifie ce geste dans la vie spirituelle ?"], ["Que peut-il se passer lorsqu'on impose les mains ?", "Quels sont les objectifs bibliques de l’imposition des mains ?"], ["Comment comprendre et pratiquer ce geste aujourd'hui ?", "Quelles sont les responsabilités et les précautions à connaître ?"]]);
 const X9=SOON("resurrection-","🌅",[["La mort est-elle vraiment la fin ?", "Que révèle la Bible sur la mort et la résurrection ?"], ["Que se passera-t-il après la mort ?", "Quelle espérance DIEU donne-t-IL à ceux qui croient en LUI ?"], ["Quel corps aurons-nous à la résurrection ?", "Que signifie ressusciter pour la vie éternelle ?"]]);
 const X10=SOON("jugement-","⚖️",[["Devant QUI devrai-je rendre compte de ma vie ?", "Pourquoi chaque être humain devra-t-il comparaître devant DIEU ?"], ["Que révèle le jugement de DIEU sur ma manière de vivre ?", "Quelle place occupent mes choix et mes œuvres ?"], ["Quelle sera ma destinée éternelle ?", "Que dit la Bible sur la vie éternelle et le jugement ?"]]);
-const M0=[{n:"Module 1",t:"De la création à l'héritage",lv:L.map(l=>l.id)},{n:"Module 2",t:"Naître de nouveau",lv:X2.map(l=>l.id)},{n:"Module 3",t:"La consécration",lv:X3.map(l=>l.id)},{n:"Module 4",t:"Enfant de DIEU… et maintenant ?",lv:X4.map(l=>l.id)},
-{n:"Module 5",t:"LE RENONCEMENT AUX ŒUVRES MORTES",lv:X5.map(l=>l.id)},
-{n:"Module 6",t:"LA FOI EN DIEU",lv:X6.map(l=>l.id)},
-{n:"Module 7",t:"LA DOCTRINE DES BAPTÊMES",lv:X7.map(l=>l.id)},
-{n:"Module 8",t:"L'IMPOSITION DES MAINS",lv:X8.map(l=>l.id)},
-{n:"Module 9",t:"LA RÉSURRECTION DES MORTS",lv:X9.map(l=>l.id)},
-{n:"Module 10",t:"LE JUGEMENT ÉTERNEL",lv:X10.map(l=>l.id)}];
+const CAT_V=29;
+const M0=[{n:"Module 1",t:"Origine",lv:OL.map(l=>l.id)},{n:"Module 2",t:"Relation",lv:[]},{n:"Module 3",t:"Identité",lv:[]},{n:"Module 4",t:"Statut",lv:[]},{n:"Module 5",t:"Position",lv:[]},{n:"Module 6",t:"Héritage",lv:[]}];
 M0.forEach((m,i)=>m.id='m'+(i+1));
 const VX=[];
-const L0=L.concat(X2,X3,X4,X5,X6,X7,X8,X9,X10),M=[];
+const L0=OL.concat(L,X2,X3,X4,X5,X6,X7,X8,X9,X10),M=[];
 function applyCatalog(c){
  const E=t=>String(t).replace(/[&<>"]/g,k=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[k])),
   D=x=>typeof x=='string'?E(x):Array.isArray(x)?x.map(D):x,
   base={};L0.forEach(l=>base[l.id]=l);
- const cl=(c&&c.levels)||{},mods=(c&&Array.isArray(c.modules)&&c.modules.length)?c.modules:M0;
+ const cl=(c&&c.levels)||{},mods=(c&&c.cv>=CAT_V&&Array.isArray(c.modules)&&c.modules.length)?c.modules:M0;
  L.length=0;M.length=0;
  VX.length=0;((c&&c.verses)||[]).forEach(v=>{if(v&&v.ref&&v.t&&v.mod)VX.push({id:String(v.id||'').replace(/[^a-zA-Z0-9_-]/g,''),ref:String(v.ref),t:String(v.t),ver:v.ver||'',mod:v.mod,e:v.e||'',k:Array.isArray(v.k)?v.k:[],on:v.on!==false})});
  mods.forEach((m,mi)=>{if(m.hide)return;const k=M.length;M.push({id:m.id||'m'+(mi+1),n:E(m.n||''),t:E(m.t||'')});let n=0;

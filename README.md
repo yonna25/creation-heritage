@@ -27,11 +27,12 @@ Dans content.js, chaque niveau contient aussi : nt (notion), sq (question simple
 2. Ouvrir `admin.html`, entrer la clé admin, onglet « 📚 Modules » : créer / renommer / réordonner / masquer des modules, ajouter ou modifier des niveaux, puis « Enregistrer ». Aucun redéploiement n'est nécessaire.
 3. Dans l'application, l'onglet « Thèmes » liste les modules ; choisir un module affiche ses niveaux d'étude.
 
-## ORIGINE : 5 marches (v28)
-Le niveau Origine suit désormais **5 marches de 2 minutes**, définies dans `content.js` (constante `OJ`). Règle : une idée forte → une Parole → une question → une action → une célébration.
-- Marches : SOURCE · IDENTITÉ · RESPONSABILITÉ · MISSION · RETOUR À LA SOURCE, précédées d'un écran de départ et suivies de « Mon ORIGINE » (les 5 vérités, la phrase ORIGINE, les 5 actions, transition vers RELATION).
-- Chaque marche : écran `idee` (idée + « À comprendre » + 1 ou 2 versets) → `qr` (une question de vie ; la réponse révèle « À retenir ») → `bl` (une action à compléter) → `cel` (feu d'artifice, « Marche n sur 5 franchie », ce que tu retiens, puis « Continuer vers la marche n+1 » ou « Faire une pause »). La marche 5 se termine directement par la grande célébration (`fin`).
-- Pause : l'apprenant voit « Ta marche t'attend. Retiens simplement : … » et reprend au début de la marche suivante (progression `jp`).
-- Supprimés : le quiz de 6 questions (donc plus de score), l'écran « Situations », les écrans de réflexion libre. `S.p[niveau].s` reçoit la phrase ORIGINE (`l.s`) et `S.p[niveau].e` les 5 actions, donc synthèse, admin et export CSV restent compatibles.
-- La progression enregistrée avec l'ancien parcours (v27) est réinitialisée automatiquement (`jv` = 2) ; les niveaux déjà terminés restent marqués comme terminés.
-- Pour modifier un texte : `content.js` (pas depuis l'admin).
+## Structure en 6 modules (v29)
+Les anciens modules 2 à 10 (Naître de nouveau, La consécration, etc.) sont supprimés. L'application compte désormais **6 modules** : Origine (module 1), Relation, Identité, Statut, Position, Héritage (modules 2 à 6, affichés « à venir bientôt » tant qu'ils n'ont pas de niveaux).
+- Définition dans `content.js` : `M0` (modules) et `OL` (niveaux d'Origine). Pour activer un module : créer ses niveaux comme `OL` puis les lister dans `lv` du module.
+- **Origine = 5 niveaux** (`origine-1` à `origine-5`) : Source, Identité, Responsabilité, Mission, Retour à la source. Chaque niveau : idée + Parole → question (« À retenir ») → action → célébration (feu d'artifice, « Continuer vers le niveau n+1 » ou « Faire une pause »). Le niveau 5 se termine par la finale (5 vérités, 5 actions, transition vers RELATION).
+- Types d'écrans : `in`, `idee`, `qr`, `bl`, `cel` (fin de niveau), `fin` (finale du module). Les niveaux se débloquent dans l'ordre.
+- `CAT_V` (content.js) : les modules enregistrés dans l'admin avant cette version sont ignorés (ils portaient l'ancienne liste). Les enregistrements faits depuis l'onglet Modules de l'admin portent `cv` et sont repris normalement.
+- Les anciens niveaux Relation, Identité, Statut, Position, Héritage (version 8 étapes) restent dans `content.js` mais ne sont plus affichés ; ils serviront de base pour les refondre.
+- Typographie française : un script en fin d'`index.html` remplace l'espace avant `! ? : ; »` (et après `«`) par une espace insécable, pour que la ponctuation ne passe jamais seule à la ligne suivante.
+- Écrans compacts (classe `.jz`) pour limiter le défilement.
