@@ -27,11 +27,11 @@ Dans content.js, chaque niveau contient aussi : nt (notion), sq (question simple
 2. Ouvrir `admin.html`, entrer la clé admin, onglet « 📚 Modules » : créer / renommer / réordonner / masquer des modules, ajouter ou modifier des niveaux, puis « Enregistrer ». Aucun redéploiement n'est nécessaire.
 3. Dans l'application, l'onglet « Thèmes » liste les modules ; choisir un module affiche ses niveaux d'étude.
 
-## ORIGINE : parcours guidé (v27)
-Le niveau Origine ne suit plus les 8 étapes classiques : il utilise un **parcours guidé** défini dans `content.js` (constantes `OJ` pour le déroulé et `OZ` pour le quiz). Boucle pédagogique de chaque chapitre : situation → question → réaction personnelle → Parole → découverte → application → décision.
-- Chapitres : Départ · Source · Identité · Responsabilité · Mission · Situations · Le mensonge · Nouvelle référence · Quiz · Engagement · Mon ORIGINE (phrases à compléter, révélation, transition vers RELATION).
-- Types d'écrans : `in`, `sit`, `bib`, `ms`, `bl`, `tx`, `cmp`, `qz`, `bd`, `fin`. Tout niveau qui possède un champ `jy` utilise ce moteur ; les autres niveaux restent inchangés.
-- Réponses enregistrées dans `S.p[niveau].j` ; la progression (`jp`) permet de reprendre où l'on s'était arrêté. Les champs `r` (différence entre les deux façons de vivre), `s` (phrases complétées), `e` (engagement) et `qa`/`sc` (quiz) restent compatibles avec la synthèse, l'admin et l'export CSV.
-- Le quiz Origine teste l'application (6 situations de vie). Chaque question accepte un 4e élément : l'explication affichée après la réponse.
-- Le contenu du parcours se modifie dans `content.js` (pas depuis l'admin). Si le niveau a déjà été modifié via l'admin, le parcours guidé est conservé.
-- Pour migrer un autre niveau : ajouter un champ `jy` (liste de chapitres) à ce niveau.
+## ORIGINE : 5 marches (v28)
+Le niveau Origine suit désormais **5 marches de 2 minutes**, définies dans `content.js` (constante `OJ`). Règle : une idée forte → une Parole → une question → une action → une célébration.
+- Marches : SOURCE · IDENTITÉ · RESPONSABILITÉ · MISSION · RETOUR À LA SOURCE, précédées d'un écran de départ et suivies de « Mon ORIGINE » (les 5 vérités, la phrase ORIGINE, les 5 actions, transition vers RELATION).
+- Chaque marche : écran `idee` (idée + « À comprendre » + 1 ou 2 versets) → `qr` (une question de vie ; la réponse révèle « À retenir ») → `bl` (une action à compléter) → `cel` (feu d'artifice, « Marche n sur 5 franchie », ce que tu retiens, puis « Continuer vers la marche n+1 » ou « Faire une pause »). La marche 5 se termine directement par la grande célébration (`fin`).
+- Pause : l'apprenant voit « Ta marche t'attend. Retiens simplement : … » et reprend au début de la marche suivante (progression `jp`).
+- Supprimés : le quiz de 6 questions (donc plus de score), l'écran « Situations », les écrans de réflexion libre. `S.p[niveau].s` reçoit la phrase ORIGINE (`l.s`) et `S.p[niveau].e` les 5 actions, donc synthèse, admin et export CSV restent compatibles.
+- La progression enregistrée avec l'ancien parcours (v27) est réinitialisée automatiquement (`jv` = 2) ; les niveaux déjà terminés restent marqués comme terminés.
+- Pour modifier un texte : `content.js` (pas depuis l'admin).

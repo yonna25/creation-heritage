@@ -1,62 +1,38 @@
-// ===== ORIGINE : parcours guidé (v27) =====
-// Chaque écran suit la boucle : situation → question → réaction personnelle → Parole → découverte → application → décision.
-// Types d'écrans : in (texte), sit (situation + choix), bib (Parole + découverte), ms (choix multiples), bl (phrase à compléter),
-// tx (réponse libre), cmp (avant / après), qz (quiz d'application), bd (construire ma phrase), fin (révélation + transition).
-const OZ=[
-["Tu viens d'échouer à un examen et tu te dis : « Je ne vaux rien. » Quelle pensée correspond le mieux à ce que tu viens d'apprendre ?",["Mon résultat définit ma valeur.","Ma valeur commence avec ce que DIEU dit de ma création.","Je dois prouver ma valeur aux autres."],1,"Mon identité ne commence pas avec ma performance, mais avec ce que DIEU dit de ma création."],
-["Après une grande réussite, tu penses : « Je suis arrivé seul. » Qu'es-tu en train d'oublier ?",["Que je dois encore progresser","Que les autres ont de la chance","La source de ce que j'ai reçu"],2,"Ce que j'ai accompli repose sur ce que j'ai d'abord reçu : la vie, des capacités, des opportunités."],
-["Tu reçois beaucoup d'argent et tu te dis : « C'est mon argent, j'en fais ce que je veux. » Quelle pensée est la plus juste ?",["Ce qui m'est confié engage ma responsabilité.","L'argent n'a aucun rapport avec DIEU.","Je ne dois rien garder pour moi."],0,"DIEU m'a confié des choses à cultiver et à garder : cela implique une responsabilité."],
-["Quelqu'un t'insulte et la colère monte. Que fais-tu ?",["Je laisse ma colère décider de ma réaction.","Je fais comme si je ne ressentais rien.","Je ressens, je prends du recul, puis je choisis comment agir."],2,"Mon émotion m'informe, mais elle ne décide pas à ma place."],
-["Un ami dit : « Je vis au jour le jour, selon mes envies. » Quelle question l'aiderait le plus ?",["Pourquoi les autres réussissent-ils mieux que moi ?","Vers quoi DIEU veut-IL que j'avance ?","Comment éviter toute responsabilité ?"],1,"DIEU a confié à l'homme quelque chose à accomplir : une vie reçue est une vie qui a une direction."],
-["Dans Genèse 3, le serpent commence par mettre en doute ce que DIEU a dit. Quel est le piège ?",["Me faire douter de mes capacités","Me faire décider moi-même de ce qui est bon, comme si j'étais ma propre origine","Me faire perdre mon temps"],1,"Le piège : recevoir ma définition de moi-même plutôt que de DIEU, comme si je m'étais créé moi-même."]
-];
+// ===== ORIGINE : 5 marches (v28) =====
+// Règle : une idée forte → une Parole → une question → une action → une célébration.
+// Types d'écrans : in (accueil), idee (idée + à comprendre + Parole), qr (question + « À retenir »),
+// bl (action : phrase à compléter), cel (célébration + continuer / pause), fin (révélation + transition).
 const OJ={
-rv:["Je viens de DIEU.","IL m'a donné la vie.","Mon identité commence par ce qu'IL dit de ma création.","Ce qu'IL m'a confié engage ma responsabilité.","Ma vie a une direction."],
+rv:["Je viens de DIEU.","Mon identité commence par ce qu'IL dit de moi.","Ce que j'ai m'est confié.","Ma vie a une direction.","Je ne suis pas ma propre source."],
 tr:{t:"Si DIEU est mon Créateur et que ma vie vient de LUI, une nouvelle question se pose :",h:"❤️ Quelle relation suis-je appelé à avoir avec LUI ?",b:"Découvrir RELATION →"},
 ch:[
-{id:"dep",ic:"❓",t:"DÉPART",h:"D'où est-ce que je viens ?",s:[
- {t:"sit",k:"depart",ic:"🤔",q:"Quand tu penses à ta vie, par quoi commences-tu ?",o:[["Ce que je veux"],["Ce que les autres pensent de moi"],["Ce que je possède"],["Ce que je réussis"],["Je ne me suis jamais vraiment posé la question"]],fb:"Merci pour ta sincérité : il n'y a pas de mauvaise réponse ici. Beaucoup de personnes commencent par l'un de ces points de départ."},
- {t:"in",h:"Et si la première question à te poser était :",big:"« D'où est-ce que je viens ? »",tx:"Cette question peut changer ton point de départ intérieur. Voici le chemin que nous allons parcourir :",chn:["SOURCE","IDENTITÉ","RESPONSABILITÉ","MISSION","COMPORTEMENT"],b:"Commencer →"}]},
-{id:"src",ic:"🌱",t:"SOURCE",h:"Ma vie vient de DIEU",s:[
- {t:"sit",k:"tel",ic:"📱",tx:"Un téléphone est posé sur une table. Il fonctionne parfaitement.",q:"Est-ce qu'un téléphone peut apparaître tout seul ?",o:[["Non : quelqu'un l'a conçu et fabriqué","Exactement. Même un objet aussi simple a une origine.",1],["Oui, il a pu apparaître tout seul","Notre intuition dit le contraire : un objet aussi simple suppose déjà quelqu'un qui l'a conçu.",0]],tk:"Si un simple objet a une origine, qu'en est-il de ma vie ?"},
- {t:"bib",pre:"Voici ce que la Bible dit de l'origine de l'homme :",v:[["Genèse 2.7","L'Éternel DIEU forma l'homme de la poussière de la terre, IL souffla dans ses narines un souffle de vie, et l'homme devint un être vivant."]],dc:"Je ne me suis pas donné la vie. Je l'ai reçue.",n:"DIEU donne à l'homme le souffle de vie."},
- {t:"sit",k:"recu",q:"Est-ce que je vis comme quelqu'un qui a reçu sa vie, ou comme si ma vie m'appartenait totalement ?",o:[["Comme quelqu'un qui a reçu sa vie"],["Comme si ma vie m'appartenait totalement"],["Un peu des deux, selon les jours"]],fb:"Voilà où tu en es aujourd'hui, et c'est un bon point de départ : il n'y a rien à cacher."},
- {t:"bl",k:"src",pre:"Ma vie vient de",post:".",ok:["dieu"],ans:"DIEU",hint:"Relis Genèse 2.7 : qui donne le souffle de vie à l'homme ?",rev:"Ma vie vient de DIEU."}]},
-{id:"ide",ic:"🪞",t:"IDENTITÉ",h:"Mon identité commence par ce que DIEU dit de ma création",s:[
- {t:"sit",k:"nul",ic:"💬",tx:"Quelqu'un te dit :",th:"« Tu es nul. »",q:"Est-ce que cette parole décide de qui tu es ?",o:[["Oui, si la personne le pense vraiment","Cette réaction est très humaine. Mais l'opinion de quelqu'un, même sincère, reste une opinion.",0],["Cela dépend de ma réussite","Quand ma valeur dépend de ma réussite, elle monte et descend avec mes résultats. Peut-elle alors être solide ?",0],["Non, mon identité ne commence pas avec ce que les autres disent de moi","Oui. Voyons maintenant où elle commence vraiment.",1]]},
- {t:"bib",pre:"Que dit la Bible sur l'origine de l'être humain ?",v:[["Genèse 1.26-27","Puis DIEU dit : Faisons l'homme à NOTRE image, selon NOTRE ressemblance… DIEU créa l'homme à SON image, IL le créa à l'image de DIEU, IL créa l'homme et la femme."]],dc:"Mon identité commence par ce que DIEU dit de ma création.",l:["J'ai été créé à SON image.","Ma valeur ne naît ni du regard des autres, ni de mes résultats."]},
- {t:"sit",k:"image",q:"Quand je me regarde, qu'est-ce qui influence le plus l'image que j'ai de moi ?",o:[["Le regard des autres"],["Mes réussites et mes échecs"],["Mes comparaisons avec les autres"],["Ce que DIEU dit de moi","Belle base. Le défi est de la garder aussi dans les moments difficiles."]],fb:"C'est ce qui pèse le plus aujourd'hui dans ton regard sur toi. Tu peux désormais le confronter à ce que DIEU dit de ta création."}]},
-{id:"res",ic:"🎒",t:"RESPONSABILITÉ",h:"Ce qui m'est confié",s:[
- {t:"sit",k:"confie",ic:"🎁",tx:"Un parent confie à son enfant quelque chose de précieux et lui dit :",th:"« Prends-en soin. »",q:"Est-ce que ce qui est entre mes mains m'appartient forcément ?",o:[["Oui : si c'est dans mes mains, c'est à moi","Tenir quelque chose en main ne veut pas dire en être le propriétaire.",0],["Non : cela m'est confié, je dois en prendre soin","Exactement. Recevoir en confiance, ce n'est pas posséder.",1]]},
- {t:"bib",pre:"Après avoir donné la vie à l'homme, DIEU lui confie quelque chose :",v:[["Genèse 2.15","L'Éternel DIEU prit l'homme, et le plaça dans le jardin d'Éden pour le cultiver et pour le garder."]],dc:"DIEU ne m'a pas seulement donné une vie. IL m'a confié des choses.",l:["Mon temps","Mon corps","Mes capacités","Mes relations","Mes ressources","Mes opportunités"]},
- {t:"sit",k:"gere",q:"Quelle chose dois-tu mieux gérer actuellement ?",o:[["Mon temps"],["Mon corps"],["Mes capacités"],["Mes relations"],["Mes ressources"],["Mes opportunités"]],fb:"Garde-la en tête : tu vas en faire une petite décision."},
- {t:"bl",k:"sem",free:1,pf:"gere",h:"Ma petite décision",pre:"Cette semaine, je vais mieux prendre soin de",post:".",ph:"mon temps, mon corps…"}]},
-{id:"mis",ic:"🧭",t:"MISSION",h:"Ma vie a une direction",s:[
- {t:"sit",k:"marche",ic:"🚶",tx:"Deux personnes partent marcher.\nLa première dit : « Je vais simplement marcher. On verra bien où j'arrive. »\nLa seconde connaît sa destination.",q:"Laquelle a une direction ?",o:[["La première","Elle avance, mais sans savoir où. Marcher n'est pas la même chose que se diriger.",0],["La seconde","Oui : elle sait où elle va, et chacun de ses pas a un sens.",1]]},
- {t:"bib",pre:"Dès le commencement, DIEU parle de direction :",v:[["Genèse 1.28","DIEU les bénit, et DIEU leur dit : Soyez féconds, multipliez, remplissez la terre, et l'assujettissez ; dominez sur les poissons de la mer, sur les oiseaux du ciel, et sur tout animal qui se meut sur la terre."]],dc:"DIEU n'a pas seulement donné une vie à l'homme. IL lui a confié quelque chose à accomplir.",ar:["Être fécond","Remplir","Soumettre","Dominer"],n:"Une vie reçue de DIEU est une vie qui va quelque part."},
- {t:"sit",k:"direction",q:"Est-ce que je vis avec une direction ou est-ce que je me contente de suivre mes envies du moment ?",o:[["J'ai une direction claire"],["J'ai une direction, mais je la perds souvent"],["Je suis surtout mes envies du moment"],["Je ne sais pas encore"]],fb:"Merci pour ta franchise : savoir où tu en es, c'est déjà avancer."}]},
-{id:"sit",ic:"⚠️",t:"SITUATIONS",h:"Quand j'oublie mon origine",s:[
- {t:"in",tx:"Quittons maintenant la théorie. Voici quatre situations de la vie courante. Pour chacune, repère ce que tu risques d'oublier.",b:"Voir les situations →"},
- {t:"sit",k:"echec",ic:"📝",tx:"Tu échoues à un examen.",th:"« Je suis nul. »",q:"Qu'est-ce que tu viens d'oublier ?",o:[["Que mon identité ne commence pas avec ma performance","Oui : un échec dit quelque chose de ce que j'ai fait, pas de ce que je suis.",1],["Que je dois travailler davantage","Travailler davantage peut aider, mais la pensée « je suis nul » touche à mon identité, pas seulement à mes résultats.",0],["Que les autres réussissent mieux que moi","La comparaison ne répond pas à la question : elle l'aggrave souvent.",0]],tk:"Mon identité ne commence pas avec ma performance."},
- {t:"sit",k:"reussite",ic:"🏆",tx:"Tu réussis quelque chose que beaucoup pensaient impossible.",th:"« Je suis arrivé seul. »",q:"Qu'est-ce que tu risques d'oublier ?",o:[["La source de ce que j'ai reçu","Oui : même une grande réussite repose sur ce que j'ai d'abord reçu.",1],["Que je dois viser encore plus haut","Viser plus haut n'est pas mauvais, mais ce n'est pas ce que je risque d'oublier ici.",0],["Que d'autres ne m'ont pas cru","Cela peut blesser, mais ce n'est pas l'essentiel du risque ici.",0]],tk:"Ce que j'ai accompli repose sur une source : ce que j'ai reçu."},
- {t:"sit",k:"argent",ic:"💰",tx:"Tu reçois beaucoup d'argent.",th:"« C'est mon argent, j'en fais ce que je veux. »",q:"Que dois-tu te rappeler ?",o:[["Que ce qui m'est confié implique une responsabilité","Oui : ce qui est entre mes mains m'est confié, et cela engage ma responsabilité.",1],["Que l'argent est mauvais","L'argent n'est pas mauvais en soi : tout dépend de ce que j'en fais.",0],["Que je dois tout donner tout de suite","Il ne s'agit pas de tout donner d'un coup, mais de gérer sagement ce qui m'est confié.",0]],tk:"Ce qui m'est confié implique une responsabilité."},
- {t:"sit",k:"colere",ic:"😠",tx:"Quelqu'un t'insulte. Tu sens la colère monter.",q:"Est-ce que mon émotion doit automatiquement décider de mon comportement ?",o:[["Oui, je dois être fidèle à ce que je ressens","Ressentir est normal. Mais être fidèle à une émotion, ce n'est pas lui obéir à chaque fois.",0],["Non : je peux choisir comment agir","Oui : l'émotion m'informe, elle ne décide pas à ma place.",1]],tk:"Je ressens → je prends du recul → je choisis comment agir."}]},
-{id:"men",ic:"🐍",t:"LE MENSONGE",h:"Comme si je m'étais créé moi-même",s:[
- {t:"bib",pre:"Dans Genèse 3, tout commence par une question du serpent :",v:[["Genèse 3.1","Il dit à la femme : DIEU a-t-IL réellement dit : Vous ne mangerez pas de tous les arbres du jardin ?"],["Genèse 3.5","Mais DIEU sait que, le jour où vous en mangerez, vos yeux s'ouvriront, et que vous serez comme des dieux, connaissant le bien et le mal."]]},
- {t:"in",h:"Le vrai enjeu devient :",big:"Vais-je recevoir ma définition de DIEU, ou décider moi-même de ce qui est bon ?",tx:"Deux références possibles :\n<b>Moi</b> → mes envies → mes choix → ma direction.\n<b>DIEU</b> → ma vie → mon identité → ma responsabilité → ma mission → ma manière de vivre.",b:"Continuer →"},
- {t:"ms",k:"domaines",q:"Dans quels domaines est-ce que je vis encore comme si j'étais ma propre origine ?",o:["Mon identité","Mes choix","Mon argent","Mes relations","Mon avenir","Mes réactions","Mes priorités","Je ne sais pas encore"],nt:"Tu peux en choisir plusieurs.",fb:"Ce sont des domaines à remettre sous le regard de DIEU. Tu n'as pas à tout changer aujourd'hui : un premier pas suffit."}]},
-{id:"ref",ic:"🔄",t:"NOUVELLE RÉFÉRENCE",h:"Changer de point de départ",s:[
- {t:"cmp",av:["Moi","Mes envies","Mon identité","Mes choix","Ma direction"],ap:["DIEU","Ma vie","Mon identité","Ma responsabilité","Ma mission","Ma manière de vivre"]},
- {t:"tx",k:"diff",q:"Quelle différence vois-tu entre ces deux façons de vivre ?",ph:"La différence que je vois…",nt:"C'est à toi de formuler la transformation, avec tes propres mots."}]},
-{id:"qui",ic:"🎯",t:"QUIZ",h:"Utiliser cette vérité dans ma vie",s:[
- {t:"in",tx:"Ces questions ne testent pas seulement ta mémoire : elles vérifient si tu sais utiliser ce que tu as découvert.",b:"Commencer le quiz →"},
- {t:"qz"}]},
-{id:"eng",ic:"✍️",t:"ENGAGEMENT",h:"Mon engagement",s:[
- {t:"tx",k:"chg",q:"À partir de ce que tu viens de découvrir, qu'est-ce que tu veux changer dans ta manière de voir ta vie ?",ph:"Je veux changer…"},
- {t:"tx",k:"app",q:"Dans quelle situation veux-tu commencer à appliquer cette nouvelle référence ?",ex:"« Quand j'échoue, je veux arrêter de penser que mon échec définit ma valeur. »",ph:"Je commence quand…"}]},
-{id:"cle",ic:"🌱",t:"MON ORIGINE",h:"Mon ORIGINE en une phrase",s:[
- {t:"bd",h:"Je construis ma phrase",tx:"Complète ces quatre phrases avec tes mots, à partir de ce que tu as découvert.",f:[{k:"f1",pre:"Je viens de",ph:"…"},{k:"f2",pre:"Mon identité commence par",ph:"…"},{k:"f3",pre:"DIEU m'a confié",ph:"…"},{k:"f4",pre:"Ma vie a pour direction",ph:"…"}]},
- {t:"fin"}]}
+{id:"dep",ic:"🚶",t:"DÉPART",s:[
+ {t:"in",ic:"🚶",h:"5 marches, 2 minutes chacune",tx:"Chaque marche : une idée, une Parole, une question, une action.\nTu avances à ton rythme et tu peux t'arrêter à la fin de chaque marche.",chn:["SOURCE","IDENTITÉ","RESPONSABILITÉ","MISSION","RETOUR À LA SOURCE"],b:"Commencer la marche 1 →"}]},
+{id:"m1",n:1,ic:"🌱",t:"SOURCE",s:[
+ {t:"idee",big:"Ma vie vient de DIEU.",tx:"DIEU m'a créé. Ma vie ne commence donc pas avec mes propres choix : elle commence avec LUI.",v:[["Genèse 2.7","L'Éternel DIEU forma l'homme de la poussière de la terre, IL souffla dans ses narines un souffle de vie, et l'homme devint un être vivant."]]},
+ {t:"qr",k:"q1",q:"Si ma vie vient de DIEU, est-ce que je peux décider seul de son sens ?",o:[["Oui, c'est ma vie : je décide seul","C'est une réaction courante. Mais une vie que je n'ai pas choisie de recevoir peut-elle avoir un sens que je me donne seul ?",0],["Non : DIEU a créé ma vie, IL lui donne aussi un sens","Oui. Ce qui est reçu porte déjà une intention.",1],["Je ne sais pas encore","C'est un très bon point de départ : la suite va t'aider.",2]],r:"Ce que DIEU crée, IL lui donne aussi un sens."},
+ {t:"bl",k:"a1",free:1,h:"✋ Mon action",pre:"Merci DIEU pour",post:".",ph:"ma santé, ma famille…"},
+ {t:"cel",r:"Ce que DIEU crée, IL lui donne aussi un sens."}]},
+{id:"m2",n:2,ic:"🪞",t:"IDENTITÉ",s:[
+ {t:"idee",big:"Mon identité commence par ce que DIEU dit de moi.",tx:"J'ai été créé à SON image.\nMa valeur ne naît ni du regard des autres, ni de mes résultats.",v:[["Genèse 1.27","DIEU créa l'homme à SON image, IL le créa à l'image de DIEU, IL créa l'homme et la femme."]]},
+ {t:"qr",k:"q2",tx:"Quelqu'un te dit :",th:"« Tu es nul. »",q:"Qui décide de ce que tu vaux ?",o:[["Cette personne, si elle le pense vraiment","Une opinion, même sincère, reste une opinion.",0],["Mes résultats","Une valeur qui dépend des résultats monte et descend avec eux.",0],["DIEU, qui m'a créé","Oui. Voilà une base qui ne bouge pas.",1]],r:"Un regard peut m'évaluer, seul DIEU me définit."},
+ {t:"bl",k:"a2",free:1,h:"✋ Mon action",pre:"Quand je pense « je suis nul », je me rappelle :",post:"",ph:"j'ai été créé à SON image"},
+ {t:"cel",r:"Un regard peut m'évaluer, seul DIEU me définit."}]},
+{id:"m3",n:3,ic:"🎒",t:"RESPONSABILITÉ",s:[
+ {t:"idee",big:"Ce que j'ai m'est confié.",tx:"DIEU ne m'a pas seulement donné la vie : IL m'a confié des choses à cultiver et à garder.",v:[["Genèse 2.15","L'Éternel DIEU prit l'homme, et le plaça dans le jardin d'Éden pour le cultiver et pour le garder."]]},
+ {t:"qr",k:"q3",tx:"Tu reçois beaucoup d'argent.",q:"Est-ce « mon argent » ou « ce qui m'est confié » ?",o:[["C'est mon argent, j'en fais ce que je veux","Tenir quelque chose en main ne veut pas dire en être le propriétaire.",0],["Cela m'est confié : j'en prends soin","Exactement. Recevoir en confiance, ce n'est pas posséder.",1]],r:"Je ne possède pas, je gère."},
+ {t:"bl",k:"a3",free:1,h:"✋ Mon action",pre:"Cette semaine, je prends mieux soin de",post:".",ph:"mon temps, mon corps…"},
+ {t:"cel",r:"Je ne possède pas, je gère."}]},
+{id:"m4",n:4,ic:"🧭",t:"MISSION",s:[
+ {t:"idee",big:"Ma vie a une direction.",tx:"Dès le commencement, DIEU bénit l'homme et lui parle d'avancer, de porter du fruit.",v:[["Genèse 1.28","DIEU les bénit, et DIEU leur dit : Soyez féconds, multipliez, remplissez la terre, et l'assujettissez ; dominez sur les poissons de la mer, sur les oiseaux du ciel, et sur tout animal qui se meut sur la terre."]]},
+ {t:"qr",k:"q4",tx:"Deux personnes partent marcher.\nLa première avance sans savoir où elle va.\nLa seconde connaît sa destination.",q:"Laquelle sait où elle va ?",o:[["La première","Elle avance, mais marcher n'est pas la même chose que se diriger.",0],["La seconde","Oui : chacun de ses pas a un sens.",1]],r:"DIEU ne donne pas seulement la vie : IL confie quelque chose à accomplir."},
+ {t:"bl",k:"a4",free:1,h:"✋ Mon action",pre:"Une décision qui va dans cette direction :",post:"",ph:"je décide de…"},
+ {t:"cel",r:"DIEU ne donne pas seulement la vie : IL confie quelque chose à accomplir."}]},
+{id:"m5",n:5,ic:"🔄",t:"RETOUR À LA SOURCE",s:[
+ {t:"idee",big:"Quand je décide seul de ce qui est bon, j'oublie d'où je viens.",tx:"Le serpent sème d'abord un doute sur la Parole de DIEU, puis propose : décide toi-même de ce qui est bon.",v:[["Genèse 3.1","Il dit à la femme : DIEU a-t-IL réellement dit : Vous ne mangerez pas de tous les arbres du jardin ?"],["Genèse 3.5","Mais DIEU sait que, le jour où vous en mangerez, vos yeux s'ouvriront, et que vous serez comme des dieux, connaissant le bien et le mal."]]},
+ {t:"qr",k:"q5",q:"Dans quel domaine est-ce que je vis comme si j'étais ma propre origine ?",o:[["Mon identité"],["Mes choix"],["Mon argent"],["Mes relations"],["Mon avenir"],["Mes réactions"]],fb:"Merci pour ta franchise : tu n'as pas à tout changer aujourd'hui, un premier pas suffit.",r:"Je ne suis pas ma propre source."},
+ {t:"bl",k:"a5",free:1,h:"✋ Mon action",pre:"Quand",post:", je me rappelle : je viens de DIEU.",ph:"je décide seul…"}]},
+{id:"mo",ic:"🌱",t:"MON ORIGINE",s:[{t:"fin"}]}
 ]};
 
 const L=[
@@ -68,7 +44,6 @@ const L=[
  r:"Si DIEU est à l'origine de ta vie, comment cela change-t-il ta manière de te voir et de considérer ton existence ?",
  d:["Suis-je simplement le résultat d'une existence biologique ?", "Ma vie a-t-elle une origine et une intention ?", "Est-ce que je m'appartiens entièrement ?"],
  rl:"Si DIEU est à l'origine de ta vie, qu'est-ce que cela change dans ta façon de considérer ton existence ?",
- z:OZ,
  s:"Je ne me suis pas créé moi-même : je viens de DIEU. IL est la source de ma vie, de mon identité, de ma responsabilité et de ma mission.",
  jy:OJ},
 {id:"relation",
