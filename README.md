@@ -50,7 +50,7 @@ Les anciens modules 2 à 10 (Naître de nouveau, La consécration, etc.) sont su
 - `CAT_V` passe à 31 et le cache du service worker à `ceh-v31`.
 
 ## Cohérence des 6 modules (v32)
-- **Question de chaque module** (`q` dans `M0`, affichée sous le titre) : Origine « Suis-je seulement le résultat de la vie biologique, ou ai-je été créé par DIEU ? » · Relation « Qui est DIEU pour moi ? » · Identité « Qui suis-je en DIEU ? » · Statut « Quelle est ma condition devant DIEU ? » · Position « Quelle place DIEU me donne-t-IL ? » · Héritage « Qu'est-ce qui m'est réservé ? ». Les transitions entre finales reprennent ces mêmes questions.
+- **Question de chaque module** (`q` dans `M0`, affichée sous le titre) : Origine « Suis-je un simple produit de la biologie, ou créé par DIEU ? » · Relation « Qui est DIEU pour moi ? » · Identité « Qui suis-je en DIEU ? » · Statut « Quelle est ma condition devant DIEU ? » · Position « Quelle place DIEU me donne-t-IL ? » · Héritage « Qu'est-ce qui m'est réservé ? ». Les transitions entre finales reprennent ces mêmes questions.
 - La question du module s'affiche sous le titre ; Origine 1 garde sa question d'origine (« décider seul du sens de ma vie »). Origine 2 devient **Image** (Genèse 1.27 : je porte l'image de DIEU) ; Identité 1 s'appuie sur le Psaume 139.14 (ma valeur). La finale d'Origine a maintenant sa phrase, et ses vérités sont courtes comme celles des autres modules.
 - Les trois modules ont le même écran d'intro (« 5 niveaux, 2 minutes chacun »).
 - Anciens niveaux `relation` et `identite` supprimés de `content.js` (remplacés par `RL` et `IL`).
@@ -75,3 +75,7 @@ Les anciens modules 2 à 10 (Naître de nouveau, La consécration, etc.) sont su
 - Phrase : « Enfant de DIEU, je suis héritier : DIEU est mon plus grand trésor. » Dernier module : la finale n'a pas de module suivant, le bouton mène à la synthèse.
 - La synthèse affiche « Tu as parcouru toute la route de la création à l'héritage » quand tous les niveaux sont terminés.
 - Convention Esprit : SAINT-ESPRIT / ESPRIT en majuscules. L'ancien Héritage (8 étapes) et le tableau `N` (notions) sont supprimés : les 6 modules sont tous au format 5 niveaux. `CAT_V` = 35, cache `ceh-v35`.
+
+## Accueil (v36)
+- Sur l'écran Parcours, la question du module s'affiche en gros caractères (classe `.hq`), au-dessus de la ligne « Module n · Titre changer ». Question d'Origine raccourcie : « Suis-je un simple produit de la biologie, ou créé par DIEU ? ». `CAT_V` = 36, cache `ceh-v36`.
+- Un bouton « Réinitialiser ma progression » existe déjà en bas de l'écran Parcours, dans « Réglages ».
