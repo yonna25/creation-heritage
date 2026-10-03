@@ -77,6 +77,14 @@ select{font:inherit;width:100%;padding:13px 12px;margin:6px 0 10px;border:1px so
 @keyframes k8{0%,83%{opacity:0;transform:scale(.3)}86%{opacity:.8}95%,100%{opacity:0;transform:scale(2.6)}}
 @keyframes k9{0%,85%{opacity:0;transform:scale(.2)}91%{opacity:1;transform:scale(1)}96%{opacity:.4;transform:scale(.7)}100%{opacity:1;transform:scale(1)}}
 @keyframes k10{0%,80%{opacity:0;transform:translateY(8px)}91%,100%{opacity:1;transform:translateY(0)}}
+.jb{height:3px;border-radius:3px;background:rgba(212,168,95,.18);margin:6px 0 16px}.jb i{display:block;height:3px;border-radius:3px;background:var(--ac);transition:width .3s}
+.cb{margin:6px 0 14px}.cb h1{font-size:24px;line-height:1.25}.big2{font-size:44px;line-height:1.2;margin-top:4px}
+.sit{display:flex;flex-direction:column;gap:4px}.sit .si{font-size:34px;line-height:1}.sit p{margin:.2em 0}
+.th{border-left:3px solid var(--ac);padding:2px 0 2px 12px;font-style:italic;font-size:19px;margin:6px 0}
+.tk{font-size:18px;padding:14px 16px;text-align:left;margin:12px 0}
+.chn{display:flex;flex-direction:column;align-items:center;gap:1px;margin:12px 0}.chn .nd{width:100%;text-align:center;padding:9px 12px;border:1px solid var(--bd);border-radius:12px;background:var(--bg)}.chn .ar{color:var(--ac);line-height:1.1}
+.cmp.av{opacity:.85}.cmp.ap{border-color:var(--ac)}.jl li{margin:6px 0}
+.bln{font-size:18px;line-height:2}input.bl.wide{display:block;width:100%;margin:4px 0 2px;text-align:left}
 </style></head><body>
 <div id="splash" aria-hidden="true"><svg viewBox="0 0 400 520" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="sg" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#d4a85f" stop-opacity=".42"/><stop offset="1" stop-color="#d4a85f" stop-opacity="0"/></radialGradient><linearGradient id="gd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3d994"/><stop offset="1" stop-color="#9a722c"/></linearGradient></defs>
 <g class="gl"><ellipse cx="200" cy="270" rx="190" ry="240" fill="url(#sg)"/></g>
@@ -99,7 +107,7 @@ const CH="Origine → Relation → Identité → Statut → Position → Hérita
 let S={done:{}};try{S=JSON.parse(localStorage.getItem('ceh')||'{"done":{}}')}catch(e){}
 const save=()=>{try{localStorage.setItem('ceh',JSON.stringify(S))}catch(e){}sync()};
 const $=document.getElementById('app'),e=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-let curTab,cur=null,step=0,qi=0,pick=null,ans=0,tmp={};
+let curTab,cur=null,step=0,qi=0,pick=null,ans=0,tmp={},jx=0;
 const ML=m=>L.map((l,i)=>i).filter(i=>L[i].m===m);
 const cm=()=>S.cm>=0&&S.cm<M.length?S.cm:0;
 const li=i=>ML(L[i].m).indexOf(i)+1;
@@ -185,15 +193,15 @@ function gSet(l,P,k,rv){if(!l.length)return games();l.forEach(x=>seen(x[0].id));
 function gRev(){const P=VP(),d=shuf(P.filter(v=>due(v.id))).slice(0,5);gSet(d.map(v=>[v,shuf(['c','o','r','m'].concat((S.vp[v.id].s||0)>=2?['e']:[]))[0]]),P,-1,1)}
 function gMaster(){const P=VP(),d=shuf(P.filter(v=>vst(v.id)>=3)).slice(0,5);gSet(d.map((v,i)=>[v,i%2?'e':'m']),P,-1,0)}
 function gEnd(){const g=GM;shell(`<h1>Terminé !</h1><div class="card"><h2>${g.sc} / ${g.l.length}</h2>${g.pt?`<p><b>+${g.pt} points</b></p>`:''}<p>${g.sc==g.l.length?'Magnifique, tu gardes la Parole dans ton cœur.':'Continue, la répétition fait grandir la mémoire.'}</p></div>${g.k>=0?`<button onclick="gPlay(${g.k},${g.vid?`'${g.vid}'`:'undefined'})">Rejouer</button>`:''}<button class="sec" onclick="games()">Retour aux jeux</button>`,'j')}
-function start(i){S.cm=L[i].m;cur=i;step=0;qi=0;pick=null;ans=0;tmp={};render()}
+function start(i){const l=L[i];S.cm=l.m;cur=i;step=0;qi=0;pick=null;ans=0;tmp={};jx=0;if(l.jy){jinit(l);const p=S.p[l.id];if(!S.done[l.id]&&p.jp)jx=p.jp}render()}
 const segs=h=>`<div class="seg">${ML(cm()).map(i=>`<span class="sg ${S.done[L[i].id]?'on':i===h?'h':''}" ${unlocked(i)?`onclick="start(${i})"`:''}><i></i></span>`).join('')}</div>`;
 const head=(l,i,t)=>segs(i)+`<button class="back" onclick="home()">← Parcours</button><div class="chain">Niveau ${li(i)} · ${l.n}</div><div class="mu">Étape ${step+1} sur 8 - ${t}</div>`;
 const LK='<svg class="lk" viewBox="0 0 24 24" aria-label="Verrouillé"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>';
 const IC={p:'<circle cx="6" cy="18" r="2"/><circle cx="18" cy="6" r="2"/><path d="M8 18h5a3 3 0 0 0 0-6h-2a3 3 0 0 1 0-6h5"/>',s:'<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/>',t:'<path d="M4 6h16M4 12h16M4 18h10"/>',j:'<rect x="2" y="7" width="20" height="10" rx="5"/><path d="M7 10v4M5 12h4M16 11h.01M18 13h.01"/>',g:'<circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14a5 5 0 0 1 4 5"/>'};
 function shell(h,tab,hi){curTab=tab;const T=[['p','Parcours','home()'],['t','Thèmes','themes()'],['j','Jeux','games()'],['s','Synthèse','summary()'],['g','Groupes','groups()']];
 $.innerHTML=segs(hi)+h+`<div class="nav">${T.map(t=>`<div class="${t[0]==tab?'a':''}" onclick="${t[2]}"><svg viewBox="0 0 24 24">${IC[t[0]]}</svg>${t[1]}</div>`).join('')}</div>`;window.scrollTo(0,0)}
-function intro(){cur=null;$.innerHTML=`<div class="intro"><div class="chain">Parcours biblique</div><h1 class="big">De la <i>création</i> à l’<i>héritage</i></h1><p class="mu lead">Découvre ton identité, ta position et ton héritage en CHRIST.<br>Un parcours en 6 étapes pour aller plus loin dans la Parole.</p><div class="tl">${ML(0).map(i=>`<div class="tp">${L[i].n}</div>`).join('')}</div><button class="cta" onclick="S.seen=1;save();home()"><span>Commencer</span><span>→</span></button><div class="mu" style="text-align:center;font-size:13px">Environ 10 minutes par niveau</div></div>`;window.scrollTo(0,0)}
-function render(){const l=L[cur],i=cur,P=S.p&&S.p[l.id]||{};if(step==3&&!(l.z&&l.z.length))step=4;if(step==6&&!l.vq)step=7;
+function intro(){cur=null;$.innerHTML=`<div class="intro"><div class="chain">Parcours biblique</div><h1 class="big">De la <i>création</i> à l’<i>héritage</i></h1><p class="mu lead">Découvre ton identité, ta position et ton héritage en CHRIST.<br>Un parcours en 6 étapes pour aller plus loin dans la Parole.</p><div class="tl">${ML(0).map(i=>`<div class="tp">${L[i].n}</div>`).join('')}</div><button class="cta" onclick="S.seen=1;save();home()"><span>Commencer</span><span>→</span></button><div class="mu" style="text-align:center;font-size:13px">10 à 20 minutes par niveau</div></div>`;window.scrollTo(0,0)}
+function render(){if(L[cur].jy)return jr();const l=L[cur],i=cur,P=S.p&&S.p[l.id]||{};if(step==3&&!(l.z&&l.z.length))step=4;if(step==6&&!l.vq)step=7;
 if(step==0)$.innerHTML=head(l,i,'La question clé')+`<h1>${l.q}</h1><p class="mu">Apprends à te poser cette question avant de chercher la réponse.</p><button onclick="go(1)">Découvrir →</button>`;
 else if(step==1)$.innerHTML=head(l,i,'Découverte biblique')+(l.p||[]).map(v=>`<div class="v"><b>${v[0]}</b>${v[1]}</div>`).join('')+`<button onclick="go(2)">Continuer →</button>`;
 else if(step==2)$.innerHTML=head(l,i,'Réflexion')+`<h2>${l.r}</h2>${l.d?`<button class="xp" id="xp" aria-expanded="false" aria-controls="pn" onclick="explore()"><span id="xpt">Explorer</span><small>Des questions pour aller plus loin dans ta réflexion.</small></button><div class="panel" id="pn" hidden><div class="chain">Pour approfondir ta réflexion</div><ul>${l.d.map(q=>`<li>${q}</li>`).join('')}</ul><div class="rl">${l.rl}</div><button class="sec back2" onclick="explore(1)">↓ Revenir à ma réponse</button></div>`:''}<textarea id="t" placeholder="Écris ta réponse…">${e(P.r||'')}</textarea><div class="note">Au moins quelques mots sincères : il n'y a pas de bonne ou mauvaise réponse.</div><button id="b" onclick="saveText('r',3)">Valider →</button>`;
@@ -207,6 +215,57 @@ $.innerHTML=head(l,i,'Approfondissement')+`<h1>🎉 Niveau terminé</h1><div cla
 ${grpBtns(g,l)}
 <button class="sec" onclick="home()">🟠 Revenir plus tard</button>`}
 window.scrollTo(0,0);if(step==7)fireworks()}
+// ===== Parcours guidé (niveaux qui possèdent un champ jy) =====
+const jo=l=>{S.p=S.p||{};const p=S.p[l.id]=S.p[l.id]||{};return p.j=p.j||{}},
+nl=t=>String(t).replace(/\n/g,'<br>'),
+jch=a=>`<div class="chn">${a.map((x,k)=>(k?'<span class="ar" aria-hidden="true">↓</span>':'')+`<div class="nd">${x}</div>`).join('')}</div>`,
+lf=t=>t?t.charAt(0).toLowerCase()+t.slice(1):'',
+jscore=l=>{const qa=((S.p||{})[l.id]||{}).qa||[];return(l.z||[]).reduce((a,z,n)=>a+(qa[n]===z[2]?1:0),0)},
+jfb=(s,pk)=>{const o=s.o[pk],t=o[1]||s.fb||'';return`<div class="fb" id="fb" ${o[2]==1?'style="color:var(--ok)"':''}>${o[2]==1?'✅ ':o[2]===0?'Pas tout à fait. ':''}${t}</div>${s.tk?`<div class="syn tk">👉 ${s.tk}</div>`:''}`},
+jer=(id,m)=>{document.querySelectorAll('.fb.er').forEach(x=>x.remove());document.getElementById(id).insertAdjacentHTML('afterend',`<div class="fb er" style="color:var(--ko)">${m}</div>`)};
+function jinit(l){S.p=S.p||{};const p=S.p[l.id];if(p&&p.jv!==1){p.qa=[];p.j={};delete p.jp}(S.p[l.id]=S.p[l.id]||{}).jv=1}
+function jf(l){const o=[];(l.jy.ch||[]).forEach((c,ci)=>c.s.forEach(s=>{if(s.t=='qz')(l.z||[]).forEach((z,n)=>o.push({t:'qz',n,ci,c}));else o.push(Object.assign({},s,{ci,c}))}));return o}
+function jr(keep){const l=L[cur],i=cur,F=jf(l),J=jo(l);if(jx>=F.length)jx=F.length-1;if(jx<0)jx=0;
+const s=F[jx],fc=jx==0||F[jx-1].ci!==s.ci,go='<button onclick="jn()">Continuer →</button>';let b='';
+if(s.t=='in')b=(s.ic?`<div class="big2">${s.ic}</div>`:'')+(s.h?`<h2>${s.h}</h2>`:'')+(s.big?`<div class="syn">${s.big}</div>`:'')+(s.tx?`<p>${nl(s.tx)}</p>`:'')+(s.chn?jch(s.chn):'')+`<button onclick="jn()">${s.b||'Continuer →'}</button>`;
+else if(s.t=='sit'){const v=J[s.k],pk=v===undefined?-1:s.o.findIndex(o=>o[0]==v),a=pk>=0;
+b=(s.tx?`<div class="card sit">${s.ic?`<span class="si">${s.ic}</span>`:''}<p>${nl(s.tx)}</p>${s.th?`<div class="th">${s.th}</div>`:''}</div>`:s.ic?`<div class="big2">${s.ic}</div>`:'')+`<h2>${s.q}</h2>`+s.o.map((o,k)=>`<button class="sec opt ${a?(o[2]==1?'good':k==pk?(o[2]===0?'bad':'sel'):''):''}" onclick="jpick(${k})">${o[0]}</button>`).join('')+(a?jfb(s,pk):'')+`<button onclick="jn()" ${a?'':'disabled'}>Continuer →</button>`}
+else if(s.t=='bib')b=(s.pre?`<p>${nl(s.pre)}</p>`:'')+`<div class="chain">📖 La Parole de DIEU</div>`+s.v.map(v=>`<div class="v"><b>${v[0]}</b>${v[1]}</div>`).join('')+(s.dc?`<div class="chain" style="margin-top:22px">💡 Ma découverte</div><div class="syn">${s.dc}</div>`:'')+(s.l?`<ul class="jl">${s.l.map(x=>`<li>${x}</li>`).join('')}</ul>`:'')+(s.ar?jch(s.ar):'')+(s.n?`<p class="mu">${s.n}</p>`:'')+go;
+else if(s.t=='ms'){const sel=Array.isArray(J[s.k])?J[s.k]:[];b=`<h2>${s.q}</h2>${s.nt?`<div class="note">${s.nt}</div>`:''}`+s.o.map((o,k)=>`<button class="sec opt ${sel.includes(o)?'sel':''}" aria-pressed="${sel.includes(o)}" onclick="jtog(${k})">${sel.includes(o)?'☑':'☐'} ${o}</button>`).join('')+(sel.length?`<div class="fb" id="fb">${s.fb}</div>`:'')+`<button onclick="jn()" ${sel.length?'':'disabled'}>Continuer →</button>`}
+else if(s.t=='bl'){const v=J[s.k]!==undefined?J[s.k]:(s.pf&&J[s.pf]?lf(J[s.pf]):'');b=`<h2>${s.h||'À toi de compléter'}</h2><div class="card bln"><span>${s.pre}</span> <input class="bl${s.free?' wide':''}" id="bi" size="10" maxlength="80" value="${e(v)}" placeholder="${s.ph||'…'}" autocomplete="off" onkeydown="if(event.key=='Enter')jbl()"> <span>${s.post||''}</span></div><div id="bfb"></div><button id="b" onclick="jbl()">${s.free?'Valider →':'Valider'}</button>`}
+else if(s.t=='tx')b=`<h2>${s.q}</h2>`+(s.ex?`<div class="panel"><div class="chain">Exemple</div><i>${s.ex}</i></div>`:'')+`<textarea id="t" placeholder="${s.ph||'Écris ta réponse…'}">${e(J[s.k]||'')}</textarea>`+(s.nt?`<div class="note">${s.nt}</div>`:'')+`<button id="b" onclick="jtx()">Valider →</button>`;
+else if(s.t=='cmp'){const st=tmp.cs||0;b=`<h2>Deux façons de vivre</h2><div class="card cmp av"><div class="chain">AVANT</div>${jch(s.av)}</div>`+(st?`<div class="card cmp ap"><div class="chain">APRÈS</div>${jch(s.ap)}</div>${go}`:`<button onclick="jcs()">Voir l'autre façon de vivre →</button>`)}
+else if(s.t=='qz'){const z=l.z[s.n],qa=(S.p[l.id]||{}).qa||[],pk=qa[s.n],a=pk!=null;b=`<div class="chain">Question ${s.n+1} sur ${l.z.length}</div><h2>${z[0]}</h2>`+z[1].map((o,k)=>`<button class="sec opt ${a?(k==z[2]?'good':k==pk?'bad':''):''}" onclick="jq(${k})">${o}</button>`).join('')+(a?`<div class="fb" id="fb" ${pk==z[2]?'style="color:var(--ok)"':''}>${pk==z[2]?'✅ Bonne réponse.':'Ce n\'est pas tout à fait ça - relis le passage, la réflexion compte aussi.'}${z[3]?`<br><span class="mu">${z[3]}</span>`:''}</div>`:'')+`<button onclick="jn()" ${a?'':'disabled'}>${s.n+1>=l.z.length?'Continuer →':'Question suivante →'}</button>`}
+else if(s.t=='bd')b=`<h2>${s.h||'Je construis ma phrase'}</h2><p class="mu">${s.tx}</p>`+s.f.map(x=>`<div class="card bln"><span>${x.pre}</span><input class="bl wide" id="f_${x.k}" maxlength="120" value="${e(J[x.k]||'')}" placeholder="${x.ph||'…'}" autocomplete="off"></div>`).join('')+`<div id="bfb"></div><button id="b" onclick="jbd()">Révéler mon ORIGINE →</button>`;
+else if(s.t=='fin'){const p=S.p[l.id],g=GR()[l.id]||{},T=l.jy.tr||{},q=ML(l.m),nn=q[q.indexOf(i)+1],nx=nn!==undefined&&!L[nn].soon?nn:undefined;
+ans=jscore(l);p.sc=ans;p.s=p.s||'';p.e=p.e||'';S.done[l.id]=1;save();
+b=`<h1>🌱 ORIGINE</h1><div class="syn" style="text-align:left;line-height:1.9">${(l.jy.rv||[]).join('<br>')}</div><div class="card"><b>Avec tes mots</b><p><i>${e(p.s)}</i></p>${p.e?`<b>Ton engagement</b><p>${e(p.e)}</p>`:''}${(l.z||[]).length?`<p class="mu">Quiz : ${ans}/${l.z.length}</p>`:''}</div><div class="card hero"><div class="mu">${T.t||''}</div><h2>${T.h||''}</h2><button onclick="${nx!==undefined?`start(${nx})`:'summary()'}">${T.b||'Continuer →'}</button></div>${grpBtns(g,l)}<button class="sec" onclick="home()">🟠 Revenir plus tard</button>`}
+const bn=jx>0?'<button class="sec back2" onclick="jb()">← Précédent</button>':'';
+$.innerHTML=segs(i)+`<button class="back" onclick="home()">← Parcours</button><div class="chain">Niveau ${li(i)} · ${l.n}</div><div class="mu">${s.c.ic} ${s.c.t} · ${jx+1}/${F.length}</div><div class="jb" role="progressbar" aria-valuemin="0" aria-valuemax="${F.length}" aria-valuenow="${jx+1}"><i style="width:${Math.round((jx+1)/F.length*100)}%"></i></div>`+(fc&&s.c.h?`<div class="cb"><div class="chain">${s.c.ic} ${s.c.t}</div><h1>${s.c.h}</h1></div>`:'')+b+bn;
+if(!keep)window.scrollTo(0,0);if(s.t=='fin')fireworks()}
+function jn(){const l=L[cur];jx++;tmp={};pick=null;(S.p[l.id]=S.p[l.id]||{}).jp=jx;save();jr()}
+function jb(){if(jx>0){jx--;tmp={};jr()}}
+const jsc=()=>{const f=document.getElementById('fb');if(f)f.scrollIntoView({behavior:'smooth',block:'center'})};
+function jpick(k){const l=L[cur],s=jf(l)[jx];jo(l)[s.k]=s.o[k][0];save();jr(1);jsc()}
+function jtog(k){const l=L[cur],s=jf(l)[jx],J=jo(l),a=Array.isArray(J[s.k])?J[s.k].slice():[],v=s.o[k],x=a.indexOf(v);x<0?a.push(v):a.splice(x,1);J[s.k]=a;save();jr(1)}
+function jq(k){const l=L[cur],s=jf(l)[jx],p=S.p[l.id]=S.p[l.id]||{};p.qa=p.qa||[];if(p.qa[s.n]!=null)return;p.qa[s.n]=k;p.sc=jscore(l);save();jr(1);jsc()}
+function jcs(){tmp.cs=1;jr(1);const a=document.querySelector('.cmp.ap');if(a)a.scrollIntoView({behavior:'smooth',block:'start'})}
+function jbl(){const l=L[cur],s=jf(l)[jx],J=jo(l),i=document.getElementById('bi'),v=i.value.trim(),f=document.getElementById('bfb'),b=document.getElementById('b');
+if(v.length<2){f.innerHTML='<div class="fb" style="color:var(--ko)">Écris au moins un mot.</div>';return}
+if(s.free){J[s.k]=v;save();return jn()}
+const g=s.ok.map(nz).includes(nz(v));tmp.n=(tmp.n||0)+1;
+if(g||tmp.n>=2){J[s.k]=g?v:s.ans;save();i.readOnly=true;f.innerHTML=`<div class="fb" style="color:var(${g?'--ok':'--ac'})">${g?'✅ Exactement.':'La réponse était :'}</div><div class="syn">${s.rev}</div>`;b.textContent='Continuer →';b.onclick=jn}
+else f.innerHTML=`<div class="fb" style="color:var(--ko)">Pas tout à fait. ${s.hint}</div>`}
+function jtx(){const l=L[cur],s=jf(l)[jx],v=document.getElementById('t').value.trim();
+if(v.length<12)return jer('b','Prends un moment pour écrire une vraie réponse (quelques mots au moins).');
+const J=jo(l),p=S.p[l.id];J[s.k]=v;if(s.k=='diff')p.r=v;
+if(s.k=='chg'||s.k=='app')p.e=[J.chg,J.app&&'Situation : '+J.app].filter(Boolean).join(' — ');
+save();jn()}
+function jbd(){const l=L[cur],s=jf(l)[jx],J=jo(l),p=S.p[l.id],f=document.getElementById('bfb'),v=s.f.map(x=>document.getElementById('f_'+x.k).value.trim());
+if(v.some(x=>x.length<2)){f.innerHTML='<div class="fb" style="color:var(--ko)">Complète les quatre phrases (quelques mots suffisent).</div>';return}
+if(!/dieu/i.test(v[0])&&!tmp.w){tmp.w=1;f.innerHTML='<div class="fb" style="color:var(--ko)">Relis ta première phrase : d\'après Genèse 2.7, de QUI vient ma vie ? Tu peux la corriger, ou valider à nouveau pour continuer.</div>';return}
+s.f.forEach((x,k)=>J[x.k]=v[k]);const c=t=>t.replace(/[.\s]+$/,'');
+p.s=`Je viens de ${c(v[0])}. Mon identité commence par ${c(v[1])}. DIEU m'a confié ${c(v[2])}. Ma vie a pour direction ${c(v[3])}.`;save();jn()}
 function fireworks(){if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
 const old=document.getElementById('fw');if(old)old.remove();
 const cv=document.createElement('canvas');cv.id='fw';cv.setAttribute('aria-hidden','true');cv.style.cssText='position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:20';document.body.appendChild(cv);
