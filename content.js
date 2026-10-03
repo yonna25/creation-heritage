@@ -65,6 +65,37 @@ mkO(5,"relation-5","🚶","Marcher","Je marche avec DIEU au quotidien.",[V_G524]
  {t:"fin"}],RX)
 ];
 
+// ===== IDENTITÉ : module 3 = 5 niveaux (v31) =====
+const IX={rv:["DIEU m'a créé.","IL m'aime.","IL me pardonne.","Je suis SON enfant.","IL me renouvelle."],tr:{t:"Maintenant que je sais qui je suis, une nouvelle question se pose :",h:"🧭 Pourquoi DIEU m'a-t-IL placé ici ?"},ti:"🪞 IDENTITÉ",ph:"En YESHUA’H, je suis aimé, pardonné et enfant de DIEU."};
+const V_G127=["Genèse 1.27","DIEU créa l'homme à SON image, IL le créa à l'image de DIEU, IL créa l'homme et la femme."],V_R58=["Romains 5.8","Mais DIEU prouve SON amour envers nous, en ce que, lorsque nous étions encore des pécheurs, YESHUA’H est mort pour nous."],V_1J19=["1 Jean 1.9","Si nous confessons nos péchés, IL est fidèle et juste pour nous les pardonner, et pour nous purifier de toute iniquité."],V_P10312=["Psaume 103.12","Autant l'orient est éloigné de l'occident, autant IL éloigne de nous nos transgressions."],V_J112=["Jean 1.12","Mais à tous ceux qui l'ont reçue, à ceux qui croient en SON nom, elle a donné le pouvoir de devenir enfants de DIEU."],V_2C517=["2 Corinthiens 5.17","Si quelqu'un est en YESHUA’H, il est une nouvelle créature. Les choses anciennes sont passées ; voici, toutes choses sont devenues nouvelles."];
+const IL=[
+mkO(1,"identite-1","🌟","Créé","Ma valeur ne dépend pas de ce que je fais.",[V_G127],"Ma valeur vient de CELUI qui m'a fait.",[
+ {t:"idee",big:"Ma valeur ne dépend pas de ce que je fais.",tx:"J'ai été créé à l'image de DIEU. Ma valeur ne vient ni de mes résultats, ni du regard des autres : elle vient de CELUI qui m'a fait.",v:[V_G127]},
+ {t:"qr",k:"i1",q:"Quand tu te regardes, qu'est-ce qui te vient en premier : ce que tu fais ou ce que tu vaux ?",o:[["Ce que je fais"],["Ce que je vaux"],["Cela dépend des jours"]],fb:"Merci pour ta franchise : DIEU te regarde d'abord comme SA création, pas comme la liste de tes résultats.",r:"Ma valeur vient de CELUI qui m'a fait."},
+ {t:"bl",k:"d1",free:1,h:"✋ Mon action",pre:"Une qualité que DIEU a mise en moi :",post:"",ph:"ma patience, mon écoute…"},
+ {t:"cel",r:"Ma valeur vient de CELUI qui m'a fait."}]),
+mkO(2,"identite-2","❤️","Aimé","DIEU m'a aimé alors que j'étais encore pécheur.",[V_R58],"DIEU m'a aimé avant que je fasse quoi que ce soit.",[
+ {t:"idee",big:"DIEU m'a aimé alors que j'étais encore pécheur.",tx:"DIEU n'a pas attendu que je sois meilleur : IL a montré SON amour en YESHUA’H, avant que je fasse quoi que ce soit.",v:[V_R58]},
+ {t:"qr",k:"i2",q:"Un ami t'aime seulement quand tu réussis. Un autre t'aime même quand tu échoues. Lequel ressemble à DIEU ?",o:[["Celui qui m'aime quand je réussis","Cet amour dépend des résultats. Le verset montre un amour qui vient avant tout mérite.",0],["Celui qui m'aime même quand j'échoue","Oui. DIEU m'a aimé alors que j'étais encore pécheur : SON amour ne dépend pas de ma réussite.",1]],r:"DIEU m'a aimé avant que je fasse quoi que ce soit."},
+ {t:"bl",k:"d2",free:1,h:"✋ Mon action",pre:"DIEU, merci de m'aimer. Je veux TE dire :",post:"",ph:"merci pour…"},
+ {t:"cel",r:"DIEU m'a aimé avant que je fasse quoi que ce soit."}]),
+mkO(3,"identite-3","🕊️","Pardonné","DIEU pardonne et me purifie.",[V_1J19,V_P10312],"Mon péché ne me définit plus.",[
+ {t:"idee",big:"DIEU pardonne et me purifie.",tx:"Quand je confesse ma faute, DIEU pardonne et purifie. Ce que j'ai fait est réel, mais cela ne me définit plus.",v:[V_1J19,V_P10312]},
+ {t:"qr",k:"i3",q:"Quel mot t'a-t-on collé après une erreur, ou t'es-tu collé toi-même ?",o:[["Un mot que les autres m'ont collé"],["Un mot que je me suis collé moi-même"],["Les deux"],["Aucun mot en particulier"]],fb:"Merci pour ta franchise : ce mot n'a pas le dernier mot. DIEU pardonne et purifie.",r:"Mon péché ne me définit plus."},
+ {t:"bl",k:"d3",free:1,h:"✋ Mon action",pre:"DIEU, je TE confesse :",post:"",ph:"ce que j'ai fait, ce que je porte…"},
+ {t:"cel",r:"Mon péché ne me définit plus."}]),
+mkO(4,"identite-4","🏠","Enfant","En recevant YESHUA’H, je deviens enfant de DIEU.",[V_J112],"Créé par DIEU, je deviens SON enfant en recevant YESHUA’H.",[
+ {t:"idee",big:"En recevant YESHUA’H, je deviens enfant de DIEU.",tx:"DIEU m'a créé, et IL m'ouvre aussi la porte de SA famille : en recevant YESHUA’H, je deviens SON enfant.",v:[V_J112]},
+ {t:"qr",k:"i4",q:"Un invité attend qu'on l'accueille. Un enfant rentre chez lui. Où te situes-tu avec DIEU ?",o:[["Plutôt comme un invité"],["Comme un enfant chez lui"],["Je ne sais pas encore"]],fb:"Merci pour ta franchise : Jean 1.12 est clair, recevoir YESHUA’H, c'est entrer dans la famille de DIEU.",r:"Créé par DIEU, je deviens SON enfant en recevant YESHUA’H."},
+ {t:"bl",k:"d4",free:1,h:"✋ Mon action",pre:"Je peux dire à DIEU « PÈRE » parce que",post:".",ph:"je suis SON enfant…"},
+ {t:"cel",r:"Créé par DIEU, je deviens SON enfant en recevant YESHUA’H."}]),
+mkO(5,"identite-5","✨","Nouveau","En YESHUA’H, je suis une nouvelle création.",[V_2C517],"DIEU ne me répare pas, IL me renouvelle.",[
+ {t:"idee",big:"En YESHUA’H, je suis une nouvelle création.",tx:"En YESHUA’H, les choses anciennes sont passées. DIEU ne se contente pas de me réparer : IL me renouvelle.",v:[V_2C517]},
+ {t:"qr",k:"i5",q:"Tu peux changer de vêtements, mais peux-tu changer de cœur seul ? Qui le peut ?",o:[["Moi, avec de la volonté","La volonté aide, mais le verset parle d'une création nouvelle : cela vient de DIEU, en YESHUA’H.",0],["DIEU, en YESHUA’H","Oui. Un cœur nouveau est un don de DIEU, pas un effort de ma part.",1]],r:"DIEU ne me répare pas, IL me renouvelle."},
+ {t:"bl",k:"d5",free:1,h:"✋ Mon action",pre:"Avec DIEU, je laisse derrière moi :",post:".",ph:"ma honte, ma peur…"},
+ {t:"fin"}],IX)
+];
+
 const L=[
 {id:"relation",
  ic:"❤️",
@@ -142,11 +173,11 @@ const X7=SOON("baptemes-","💧",[["Pourquoi plusieurs baptêmes dans la Bible ?
 const X8=SOON("mains-","🙌",[["Pourquoi imposait-on les mains dans la Bible ?", "Que signifie ce geste dans la vie spirituelle ?"], ["Que peut-il se passer lorsqu'on impose les mains ?", "Quels sont les objectifs bibliques de l’imposition des mains ?"], ["Comment comprendre et pratiquer ce geste aujourd'hui ?", "Quelles sont les responsabilités et les précautions à connaître ?"]]);
 const X9=SOON("resurrection-","🌅",[["La mort est-elle vraiment la fin ?", "Que révèle la Bible sur la mort et la résurrection ?"], ["Que se passera-t-il après la mort ?", "Quelle espérance DIEU donne-t-IL à ceux qui croient en LUI ?"], ["Quel corps aurons-nous à la résurrection ?", "Que signifie ressusciter pour la vie éternelle ?"]]);
 const X10=SOON("jugement-","⚖️",[["Devant QUI devrai-je rendre compte de ma vie ?", "Pourquoi chaque être humain devra-t-il comparaître devant DIEU ?"], ["Que révèle le jugement de DIEU sur ma manière de vivre ?", "Quelle place occupent mes choix et mes œuvres ?"], ["Quelle sera ma destinée éternelle ?", "Que dit la Bible sur la vie éternelle et le jugement ?"]]);
-const CAT_V=30;
-const M0=[{n:"Module 1",t:"Origine",lv:OL.map(l=>l.id)},{n:"Module 2",t:"Relation",lv:RL.map(l=>l.id)},{n:"Module 3",t:"Identité",lv:[]},{n:"Module 4",t:"Statut",lv:[]},{n:"Module 5",t:"Position",lv:[]},{n:"Module 6",t:"Héritage",lv:[]}];
+const CAT_V=31;
+const M0=[{n:"Module 1",t:"Origine",lv:OL.map(l=>l.id)},{n:"Module 2",t:"Relation",lv:RL.map(l=>l.id)},{n:"Module 3",t:"Identité",lv:IL.map(l=>l.id)},{n:"Module 4",t:"Statut",lv:[]},{n:"Module 5",t:"Position",lv:[]},{n:"Module 6",t:"Héritage",lv:[]}];
 M0.forEach((m,i)=>m.id='m'+(i+1));
 const VX=[];
-const L0=OL.concat(RL,L,X2,X3,X4,X5,X6,X7,X8,X9,X10),M=[];
+const L0=OL.concat(RL,IL,L,X2,X3,X4,X5,X6,X7,X8,X9,X10),M=[];
 function applyCatalog(c){
  const E=t=>String(t).replace(/[&<>"]/g,k=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[k])),
   D=x=>typeof x=='string'?E(x):Array.isArray(x)?x.map(D):x,

@@ -42,3 +42,9 @@ Les anciens modules 2 à 10 (Naître de nouveau, La consécration, etc.) sont su
 - La finale d'Origine mène maintenant à RELATION ; celle de RELATION annonce IDENTITÉ (module « à venir bientôt » : le bouton ouvre alors la synthèse).
 - **Groupes par module** : les liens Telegram / WhatsApp se saisissent dans admin > Groupes, un lien par module (clés `m1` à `m6`). Le groupe s'ouvre quand tous les niveaux du module sont terminés : bouton sur la finale du module, et onglet « Groupes » listant les modules. Les anciens liens par niveau ne sont plus utilisés : il faut ressaisir les liens par module.
 - `CAT_V` passe à 30 : les modules enregistrés dans l'admin avant cette version sont ignorés (retour à la structure du code).
+
+## Module 3 IDENTITÉ (v31)
+- **Identité = 5 niveaux** (`identite-1` à `identite-5`, constante `IL` dans `content.js`) : Créé, Aimé, Pardonné, Enfant, Nouveau. Même mécanique que Relation ; la finale est paramétrée par `IX`.
+- Phrase du module : « En YESHUA’H, je suis aimé, pardonné et enfant de DIEU. » Transition : « Pourquoi DIEU m'a-t-IL placé ici ? » (le module 4, encore « à venir bientôt », ouvre la synthèse).
+- Le nom YESHUA’H est utilisé partout, y compris dans Romains 5.8 et 2 Corinthiens 5.17 (à la place de « Christ »).
+- `CAT_V` passe à 31 et le cache du service worker à `ceh-v31`.
