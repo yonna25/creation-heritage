@@ -14,7 +14,7 @@ Netlify Drop (app.netlify.com/drop : glisser le dossier), Cloudflare Pages ou Gi
 - Groupes : renseigner les liens dans l'objet GROUPS de index.html.
 
 ## Règle éditoriale biblique
-Tous les contenus de l'application doivent respecter une convention typographique uniforme : DIEU, CHRIST, YESHUA’H et les pronoms faisant référence à DIEU (IL, LUI, SON, SA, SES, TOI, TE…) sont écrits en majuscules ; Saint-Esprit s'écrit SAINT-ESPRIT et Père (désignant DIEU) PÈRE. « Jésus » et « Jésus-Christ » s'écrivent YESHUA’H. Cette règle s'applique à l'ensemble des contenus présents et futurs, sans exception.
+Tous les contenus de l'application doivent respecter une convention typographique uniforme : DIEU, YESHUA’H et les pronoms faisant référence à DIEU (IL, LUI, SON, SA, SES, TOI, TE…) sont écrits en majuscules ; Saint-Esprit s'écrit SAINT-ESPRIT et Père (désignant DIEU) PÈRE. « Jésus », « Jésus-Christ » et « Christ » s'écrivent YESHUA’H : le mot CHRIST n'est plus utilisé dans l'application (décision v32). Cette règle s'applique à l'ensemble des contenus présents et futurs, sans exception.
 
 ## Approfondissement guidé (étape Réflexion)
 Dans content.js, chaque niveau contient : r (question principale), d (2 à 3 questions d'approfondissement), rl (relance). Le bouton « Explorer » ouvre un panneau facultatif, sans rechargement ; la réponse saisie est conservée et rien ne bloque la progression. Les questions d'approfondissement ne sont pas stockées.
@@ -33,7 +33,7 @@ Les anciens modules 2 à 10 (Naître de nouveau, La consécration, etc.) sont su
 - **Origine = 5 niveaux** (`origine-1` à `origine-5`) : Source, Identité, Responsabilité, Mission, Retour à la source. Chaque niveau : idée + Parole → question (« À retenir ») → action → célébration (feu d'artifice, « Continuer vers le niveau n+1 » ou « Faire une pause »). Le niveau 5 se termine par la finale (5 vérités, 5 actions, transition vers RELATION).
 - Types d'écrans : `in`, `idee`, `qr`, `bl`, `cel` (fin de niveau), `fin` (finale du module). Les niveaux se débloquent dans l'ordre.
 - `CAT_V` (content.js) : les modules enregistrés dans l'admin avant cette version sont ignorés (ils portaient l'ancienne liste). Les enregistrements faits depuis l'onglet Modules de l'admin portent `cv` et sont repris normalement.
-- Les anciens niveaux Relation, Identité, Statut, Position, Héritage (version 8 étapes) restent dans `content.js` mais ne sont plus affichés ; ils serviront de base pour les refondre.
+- Les anciens niveaux Statut, Position, Héritage (version 8 étapes) restent dans `content.js` mais ne sont plus affichés ; ils serviront de base pour les refondre.
 - Typographie française : un script en fin d'`index.html` remplace l'espace avant `! ? : ; »` (et après `«`) par une espace insécable, pour que la ponctuation ne passe jamais seule à la ligne suivante.
 - Écrans compacts (classe `.jz`) pour limiter le défilement.
 
@@ -48,3 +48,24 @@ Les anciens modules 2 à 10 (Naître de nouveau, La consécration, etc.) sont su
 - Phrase du module : « En YESHUA’H, je suis aimé, pardonné et enfant de DIEU. » Transition : « Pourquoi DIEU m'a-t-IL placé ici ? » (le module 4, encore « à venir bientôt », ouvre la synthèse).
 - Le nom YESHUA’H est utilisé partout, y compris dans Romains 5.8 et 2 Corinthiens 5.17 (à la place de « Christ »).
 - `CAT_V` passe à 31 et le cache du service worker à `ceh-v31`.
+
+## Cohérence des 6 modules (v32)
+- **Question de chaque module** (`q` dans `M0`, affichée sous le titre) : Origine « Suis-je seulement le résultat de la vie biologique, ou ai-je été créé par DIEU ? » · Relation « Qui est DIEU pour moi ? » · Identité « Qui suis-je en DIEU ? » · Statut « Quelle est ma condition devant DIEU ? » · Position « Quelle place DIEU me donne-t-IL ? » · Héritage « Qu'est-ce qui m'est réservé ? ». Les transitions entre finales reprennent ces mêmes questions.
+- La question du module s'affiche sous le titre ; Origine 1 garde sa question d'origine (« décider seul du sens de ma vie »). Origine 2 devient **Image** (Genèse 1.27 : je porte l'image de DIEU) ; Identité 1 s'appuie sur le Psaume 139.14 (ma valeur). La finale d'Origine a maintenant sa phrase, et ses vérités sont courtes comme celles des autres modules.
+- Les trois modules ont le même écran d'intro (« 5 niveaux, 2 minutes chacun »).
+- Anciens niveaux `relation` et `identite` supprimés de `content.js` (remplacés par `RL` et `IL`).
+- **Répartition à respecter pour Statut / Position** : Romains 5.8, le pardon et 1 Jean 1.9 sont déjà dans Identité (niveaux 2 et 3) ; Statut traite la condition (péché, grâce, justification) avec d'autres versets ; Position évite de redire « aucune condamnation ».
+- `CAT_V` passe à 32, cache `ceh-v32`.
+- Intro des 3 modules : la question du module s'affiche en première ligne. Relation 4 : le contexte (« Tu portes une inquiétude. ») est dans la question, comme dans les autres niveaux.
+- Relation répond à sa question « Qui est DIEU pour moi ? » : chaque 💡 commence par « DIEU est… » (celui qui me cherche, que je peux connaître, qui me parle, un PÈRE, qui marche avec moi). Phrase du module : « DIEU est proche de moi : IL désire que je LE connaisse personnellement. »
+- Identité : « TES œuvres » (Psaume 139.14) en majuscules comme les autres adresses à DIEU (TE, TOI, TU) ; vocabulaire « nouvelle créature » aligné sur le verset dans la réponse du niveau 5.
+
+## Module 4 STATUT (v33)
+- 5 niveaux `statut-1` à `statut-5` (constante `SL`) : Pécheur (Romains 3.23), Grâce (Éphésiens 2.8-9), Racheté (Romains 3.24), Justifié (Romains 5.1), Réconcilié (2 Corinthiens 5.18).
+- Phrase : « Par la grâce, je suis racheté, justifié et réconcilié avec DIEU. » Transition : « Quelle place DIEU me donne-t-IL ? » vers Position.
+- L'ancien Statut (8 étapes) est supprimé. `CAT_V` = 33, cache `ceh-v33`. Restent à refondre : Position (module 5), Héritage (module 6).
+
+## Module 5 POSITION (v34)
+- 5 niveaux `position-1` à `position-5` (constante `PL`) : Accepté (Éphésiens 1.6), Uni (Jean 15.5), Assis (Éphésiens 2.6), Membre (1 Corinthiens 12.27), Envoyé (2 Corinthiens 5.20).
+- Phrase : « En YESHUA’H, j'ai une place auprès de DIEU et dans SON corps. » Transition : « Qu'est-ce qui m'est réservé ? » vers Héritage.
+- L'ancien Position (8 étapes) est supprimé. `CAT_V` = 34, cache `ceh-v34`. Reste à refondre : Héritage (module 6).
