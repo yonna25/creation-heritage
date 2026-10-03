@@ -1,9 +1,9 @@
 // ===== ORIGINE : module 1 = 5 niveaux (v29) =====
 // Règle : une idée forte → une Parole → une question → une action → une célébration.
 // Chaque niveau = 1 chapitre ; types d'écrans : in, idee, qr, bl, cel (fin de niveau), fin (finale du module).
-const OTR={t:"Si DIEU est mon Créateur et que ma vie vient de LUI, une nouvelle question se pose :",h:"❤️ Quelle relation suis-je appelé à avoir avec LUI ?",b:"Voir ma synthèse →"};
+const OTR={t:"Si DIEU est mon Créateur et que ma vie vient de LUI, une nouvelle question se pose :",h:"❤️ Quelle relation suis-je appelé à avoir avec LUI ?",b:"Découvrir RELATION →"};
 const ORV=["Je viens de DIEU.","Mon identité commence par ce qu'IL dit de moi.","Ce que j'ai m'est confié.","Ma vie a une direction.","Je ne suis pas ma propre source."];
-const mkO=(n,id,ic,t,q,v,r,ch)=>({id:id,ic:ic,n:t,q:q,p:v,s:r,jy:{rv:ORV,tr:OTR,ch:[{id:'c'+n,ic:ic,t:t,s:ch}]}});
+const mkO=(n,id,ic,t,q,v,r,ch,X)=>({id:id,ic:ic,n:t,q:q,p:v,s:r,jy:Object.assign({rv:ORV,tr:OTR,ti:"🌱 ORIGINE"},X||{},{ch:[{id:'c'+id,ic:ic,t:t,s:ch}]})});
 const OL=[
 mkO(1,"origine-1","🌱","Source","Ma vie vient de DIEU.",[["Genèse 2.7","L'Éternel DIEU forma l'homme de la poussière de la terre, IL souffla dans ses narines un souffle de vie, et l'homme devint un être vivant."]],"Ce que DIEU crée, IL lui donne aussi un sens.",[
  {t:"in",ic:"🚶",h:"5 niveaux, 2 minutes chacun",tx:"Chaque niveau : une idée, une Parole, une question, une action.\nTu avances à ton rythme et tu peux t'arrêter à la fin de chaque niveau.",chn:["SOURCE","IDENTITÉ","RESPONSABILITÉ","MISSION","RETOUR À LA SOURCE"],b:"Commencer →"},
@@ -31,6 +31,38 @@ mkO(5,"origine-5","🔄","Retour à la source","Quand je décide seul de ce qui 
  {t:"qr",k:"q5",q:"Dans quel domaine est-ce que je vis comme si j'étais ma propre origine ?",o:[["Mon identité"],["Mes choix"],["Mon argent"],["Mes relations"],["Mon avenir"],["Mes réactions"]],fb:"Merci pour ta franchise : tu n'as pas à tout changer aujourd'hui, un premier pas suffit.",r:"Je ne suis pas ma propre source."},
  {t:"bl",k:"a5",free:1,h:"✋ Mon action",pre:"Quand",post:", je me rappelle : je viens de DIEU.",ph:"je décide seul…"},
  {t:"fin"}])
+];
+
+
+// ===== RELATION : module 2 = 5 niveaux (v30) =====
+const RX={rv:["DIEU me cherche.","Je LE connais.","IL me parle.","Je LUI parle.","Je marche avec LUI."],tr:{t:"Si DIEU est mon Créateur et que je marche avec LUI, une nouvelle question se pose :",h:"🪞 Qui suis-je ?",b:"Découvrir IDENTITÉ →"},ti:"❤️ RELATION",ph:"DIEU désire que je LE connaisse personnellement."};
+const V_G39=["Genèse 3.9","Mais l'Éternel DIEU appela l'homme, et lui dit : Où es-tu ?"],V_J173=["Jean 17.3","Or, la vie éternelle, c'est qu'ils TE connaissent, TOI, le seul vrai DIEU, et celui que TU as envoyé, YESHUA’H."],V_P231=["Psaume 23.1","L'Éternel est mon berger : je ne manquerai de rien."],V_J1027=["Jean 10.27","MES brebis entendent MA voix ; JE les connais, et elles ME suivent."],V_PH46=["Philippiens 4.6","Ne vous inquiétez de rien ; mais en toute chose faites connaître vos besoins à DIEU par des prières et des supplications, avec des actions de grâces."],V_G524=["Genèse 5.24","Hénoc marcha avec DIEU, puis il ne parut plus, parce que DIEU le prit."];
+const RL=[
+mkO(1,"relation-1","🤝","Initiative","DIEU fait le premier pas vers moi.",[V_G39],"DIEU ne m'attend pas de loin : IL vient me chercher.",[
+ {t:"idee",big:"DIEU fait le premier pas vers moi.",tx:"Après la faute, l'homme se cache. Mais DIEU ne reste pas à distance : IL appelle.",v:[V_G39]},
+ {t:"qr",k:"r1",q:"Après la faute, l'homme se cache. Qui part à sa recherche ?",o:[["L'homme, qui revient vers DIEU","Dans le récit, c'est l'inverse : l'homme se cache, et c'est DIEU qui appelle en premier.",0],["Personne : DIEU laisse l'homme se débrouiller seul","Le texte montre le contraire : DIEU ne laisse pas l'homme dans sa cachette.",0],["DIEU, qui l'appelle : « Où es-tu ? »","Oui. Avant que l'homme ne bouge, DIEU a déjà fait le premier pas.",1]],r:"DIEU ne m'attend pas de loin : IL vient me chercher."},
+ {t:"bl",k:"b1",free:1,h:"✋ Mon action",pre:"DIEU, je suis là. Je veux TE dire :",post:"",ph:"merci, pardon, j'ai besoin de TOI…"},
+ {t:"cel",r:"DIEU ne m'attend pas de loin : IL vient me chercher."}]),
+mkO(2,"relation-2","📖","Connaître","DIEU veut que je LE connaisse, pas seulement que j'entende parler de LUI.",[V_J173,V_P231],"Connaître DIEU, c'est vivre en lien avec LUI.",[
+ {t:"idee",big:"DIEU veut que je LE connaisse, pas seulement que j'entende parler de LUI.",tx:"Connaître DIEU, ce n'est pas accumuler des informations sur LUI : c'est vivre en lien avec LUI, comme un berger avec ses brebis.",v:[V_J173,V_P231]},
+ {t:"qr",k:"r2",q:"On peut connaître quelqu'un par ce que les autres en disent, ou en passant du temps avec lui. Comment connais-tu DIEU ?",o:[["Surtout par ce que j'ai entendu dire de LUI"],["Par ce que je vis avec LUI"],["Un peu des deux"]],fb:"Merci pour ta franchise : c'est ton point de départ, et il peut grandir.",r:"Connaître DIEU, c'est vivre en lien avec LUI."},
+ {t:"bl",k:"b2",free:1,h:"✋ Mon action",pre:"Une chose que je sais de DIEU parce que je l'ai vécue :",post:"",ph:"IL m'a aidé quand…"},
+ {t:"cel",r:"Connaître DIEU, c'est vivre en lien avec LUI."}]),
+mkO(3,"relation-3","👂","Écouter","DIEU me parle.",[V_J1027],"Une relation grandit quand j'écoute.",[
+ {t:"idee",big:"DIEU me parle.",tx:"Les brebis reconnaissent la voix de leur berger. DIEU parle, et je peux apprendre à L'entendre.",v:[V_J1027]},
+ {t:"qr",k:"r3",q:"Ta journée est pleine de bruit. À quel moment laisses-tu de la place pour entendre DIEU ?",o:[["Le matin"],["Le soir"],["Pendant la journée"],["Je n'ai pas encore de moment"]],fb:"Merci pour ta franchise : l'important est de choisir un moment, même court.",r:"Une relation grandit quand j'écoute."},
+ {t:"bl",k:"b3",free:1,h:"✋ Mon action",pre:"Je lis la Parole de DIEU à ce moment :",post:"",ph:"le matin avant de partir…"},
+ {t:"cel",r:"Une relation grandit quand j'écoute."}]),
+mkO(4,"relation-4","🙏","Parler","Je peux parler à DIEU comme à un PÈRE.",[V_PH46],"Prier, c'est parler à quelqu'un qui m'écoute.",[
+ {t:"idee",big:"Je peux parler à DIEU comme à un PÈRE.",tx:"Pas besoin de belles phrases : DIEU m'invite à LUI présenter mes besoins, avec confiance.",v:[V_PH46]},
+ {t:"qr",k:"r4",tx:"Tu portes une inquiétude.",q:"À qui en parles-tu en premier ?",o:[["À personne : je garde tout pour moi","Garder tout pour soi pèse lourd. Le texte invite à une autre voie : tout faire connaître à DIEU.",0],["À mes proches d'abord","Parler à ses proches est précieux. Le texte ajoute : en toute chose, faire aussi connaître ses besoins à DIEU."],["À DIEU, par la prière","Oui. Prier, c'est faire connaître mes besoins à quelqu'un qui m'écoute.",1]],r:"Prier, c'est parler à quelqu'un qui m'écoute."},
+ {t:"bl",k:"b4",free:1,h:"✋ Mon action",pre:"DIEU, aujourd'hui je TE confie :",post:"",ph:"mon inquiétude, ma journée…"},
+ {t:"cel",r:"Prier, c'est parler à quelqu'un qui m'écoute."}]),
+mkO(5,"relation-5","🚶","Marcher","Je marche avec DIEU au quotidien.",[V_G524],"Une relation n'est pas une visite, c'est un chemin.",[
+ {t:"idee",big:"Je marche avec DIEU au quotidien.",tx:"Hénoc a marché avec DIEU : pas une visite de temps en temps, mais un chemin fait ensemble, jour après jour.",v:[V_G524]},
+ {t:"qr",k:"r5",q:"Une rencontre par an ou un chemin fait ensemble : qu'est-ce qui construit une relation ?",o:[["Une rencontre par an, même très belle","Une belle rencontre compte, mais une relation se construit surtout dans la durée.",0],["Un chemin fait ensemble, jour après jour","Oui. C'est la présence régulière qui fait grandir une relation.",1]],r:"Une relation n'est pas une visite, c'est un chemin."},
+ {t:"bl",k:"b5",free:1,h:"✋ Mon action",pre:"Chaque jour, je marche avec DIEU en",post:".",ph:"priant, lisant, remerciant…"},
+ {t:"fin"}],RX)
 ];
 
 const L=[
@@ -110,11 +142,11 @@ const X7=SOON("baptemes-","💧",[["Pourquoi plusieurs baptêmes dans la Bible ?
 const X8=SOON("mains-","🙌",[["Pourquoi imposait-on les mains dans la Bible ?", "Que signifie ce geste dans la vie spirituelle ?"], ["Que peut-il se passer lorsqu'on impose les mains ?", "Quels sont les objectifs bibliques de l’imposition des mains ?"], ["Comment comprendre et pratiquer ce geste aujourd'hui ?", "Quelles sont les responsabilités et les précautions à connaître ?"]]);
 const X9=SOON("resurrection-","🌅",[["La mort est-elle vraiment la fin ?", "Que révèle la Bible sur la mort et la résurrection ?"], ["Que se passera-t-il après la mort ?", "Quelle espérance DIEU donne-t-IL à ceux qui croient en LUI ?"], ["Quel corps aurons-nous à la résurrection ?", "Que signifie ressusciter pour la vie éternelle ?"]]);
 const X10=SOON("jugement-","⚖️",[["Devant QUI devrai-je rendre compte de ma vie ?", "Pourquoi chaque être humain devra-t-il comparaître devant DIEU ?"], ["Que révèle le jugement de DIEU sur ma manière de vivre ?", "Quelle place occupent mes choix et mes œuvres ?"], ["Quelle sera ma destinée éternelle ?", "Que dit la Bible sur la vie éternelle et le jugement ?"]]);
-const CAT_V=29;
-const M0=[{n:"Module 1",t:"Origine",lv:OL.map(l=>l.id)},{n:"Module 2",t:"Relation",lv:[]},{n:"Module 3",t:"Identité",lv:[]},{n:"Module 4",t:"Statut",lv:[]},{n:"Module 5",t:"Position",lv:[]},{n:"Module 6",t:"Héritage",lv:[]}];
+const CAT_V=30;
+const M0=[{n:"Module 1",t:"Origine",lv:OL.map(l=>l.id)},{n:"Module 2",t:"Relation",lv:RL.map(l=>l.id)},{n:"Module 3",t:"Identité",lv:[]},{n:"Module 4",t:"Statut",lv:[]},{n:"Module 5",t:"Position",lv:[]},{n:"Module 6",t:"Héritage",lv:[]}];
 M0.forEach((m,i)=>m.id='m'+(i+1));
 const VX=[];
-const L0=OL.concat(L,X2,X3,X4,X5,X6,X7,X8,X9,X10),M=[];
+const L0=OL.concat(RL,L,X2,X3,X4,X5,X6,X7,X8,X9,X10),M=[];
 function applyCatalog(c){
  const E=t=>String(t).replace(/[&<>"]/g,k=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[k])),
   D=x=>typeof x=='string'?E(x):Array.isArray(x)?x.map(D):x,
