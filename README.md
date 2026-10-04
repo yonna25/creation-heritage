@@ -81,6 +81,8 @@ Les anciens modules 2 à 10 (Naître de nouveau, La consécration, etc.) sont su
 - Un bouton « Réinitialiser ma progression » existe déjà en bas de l'écran Parcours, dans « Réglages ».
 
 ## Intro animée (v37-v38)
-- `cine()` dans `index.html` : animation vectorielle d'environ 5 secondes (aucune image) à la première ouverture. Silhouettes dorées sur fond sombre : nouveau-né, enfant, adolescent, croix qui se dresse, éclat de lumière, homme adulte en tunique, colonnes de l'héritage, couronne. Puis « DE LA CRÉATION À L’HÉRITAGE », « Grandir. Être transformé. Hériter. » et le bouton « Découvrir ». Bouton « Passer » à tout moment ; « Revoir l'introduction » dans Réglages. Mouvement réduit : état final affiché directement. Le script est dans `cine()`, la chronologie en millisecondes dans les appels `T(...)`.
+- `cine()` dans `index.html` : animation vectorielle d'environ 5 secondes (aucune image) à la première ouverture. Silhouettes dorées sur fond sombre : nouveau-né, enfant, adolescent, croix qui se dresse, éclat de lumière, homme adulte en tunique, colonnes de l'héritage, couronne. Puis « DE LA CRÉATION À L’HÉRITAGE », trois lignes « Naître et Grandir / Croix et Être transformé / Héritage » et le bouton « Découvrir ». Bouton « Passer » à tout moment ; « Revoir l'introduction » dans Réglages. Mouvement réduit : état final affiché directement. Le script est dans `cine()`, la chronologie en millisecondes dans les appels `T(...)`.
 - L'écran de démarrage SVG de l'ancienne version reste pour les ouvertures suivantes.
-- **Correction** : `sw.js` était vide dans les v34 à v36 (erreur d'écriture) ; restauré, cache `ceh-v38`.
+- **Correction** : `sw.js` était vide dans les v34 à v36 (erreur d'écriture) ; restauré, cache `ceh-v40`.
+- v39 : une croix reste visible à gauche de l'homme dans la scène finale (`#x2`) et la phrase d'accroche cite la croix.
+- v40 : la phrase d'accroche est en trois lignes : Naître et Grandir / Croix et Être transformé / Héritage.

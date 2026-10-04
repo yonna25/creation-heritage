@@ -25,7 +25,7 @@ h1{font-size:28px;line-height:1.2;margin:.3em 0;font-weight:500}.hq{font-size:32
 #cine .ct .k1{font-size:14px;letter-spacing:.5em;color:#d9cdb8}
 #cine .ct .k2{font-size:46px;line-height:1.05;letter-spacing:.04em;color:#fff;font-weight:500}
 #cine .ct .k3{font-size:36px;line-height:1.1;letter-spacing:.03em;color:var(--ac);font-weight:500;margin-bottom:12px}
-#cine .ct .k4{font-size:15px;letter-spacing:.14em;color:#d9cdb8;margin-bottom:20px}
+#cine .ct .k4{font-size:16px;line-height:1.55;letter-spacing:.12em;color:#d9cdb8}#cine .ct .k4:nth-child(6){margin-bottom:20px}
 #cine .ct button{max-width:300px;margin:0 auto}
 h2{font-size:22px;margin:.4em 0;font-weight:500}
 .mu{color:var(--mu);font-size:15px}.chain{color:var(--ac);font-size:13px;letter-spacing:.06em}
@@ -237,16 +237,17 @@ d.innerHTML=`<button class="cs" onclick="cineEnd(${re?1:0})">Passer</button><div
 <g id="f1" ${O(200,300)} fill="url(#cg)" filter="url(#cfl)"><path d="M160 300Q158 280 192 277Q232 277 238 300Z"/><circle cx="174" cy="273" r="13"/></g>
 <g id="f2" ${O(200,300)} fill="url(#cg)" stroke="url(#cg)" stroke-linecap="round" filter="url(#cfl)"><ellipse cx="200" cy="275" rx="30" ry="12" stroke="none"/><circle cx="238" cy="262" r="12" stroke="none"/><path d="M222 280L230 299M184 282L170 299M200 286L204 299" stroke-width="7" fill="none"/></g>
 <g id="f3" ${O(200,300)} fill="url(#cg)" stroke="url(#cg)" stroke-linecap="round" filter="url(#cfl)"><circle cx="200" cy="168" r="16" stroke="none"/><path d="M176 192Q176 184 188 184H212Q224 184 224 192L222 246H178Z" stroke="none"/><path d="M190 246L188 298M210 246L212 298" stroke-width="14" fill="none"/><path d="M178 192L170 240M222 192L230 240" stroke-width="10" fill="none"/></g>
+<g id="x2" ${O(130,302)}><circle cx="130" cy="232" r="50" fill="url(#cr1)"/><rect x="126" y="196" width="9" height="106" fill="url(#cw)"/><rect x="108" y="218" width="45" height="9" fill="url(#cw)"/></g>
 <g id="f4" ${O(200,300)} fill="url(#cg)" stroke="url(#cg)" stroke-linecap="round" filter="url(#cfl)"><circle cx="200" cy="122" r="19" stroke="none"/><path d="M170 152Q170 142 184 142H216Q230 142 230 152L240 298H160Z" stroke="none"/><path d="M172 154L162 214M228 154L238 214" stroke-width="11" fill="none"/><path d="M180 148L224 232" stroke="#fff3cf" stroke-width="4" opacity=".8" fill="none"/></g>
 <g id="cr" ${O(200,100)}><path d="M182 100L186 80L194 92L200 76L206 92L214 80L218 100Z" fill="#ffe3a0" stroke="#fff3cf" stroke-width="1.5" stroke-linejoin="round" filter="url(#cfl)"/></g>
 <g id="sp" ${O(200,86)}><circle cx="200" cy="86" r="22" fill="url(#cr2)"/></g>
 <g id="fl" ${O(200,190)}><circle cx="200" cy="190" r="30" fill="url(#cr2)"/></g>
 <g id="pt" fill="#f6d98e">${[...Array(14)].map((_,i)=>`<circle cx="${30+(i*53)%340}" cy="${150+(i*37)%150}" r="${1+(i%3)*.6}" opacity="0"/>`).join('')}</g>
-</svg></div><div class="ct" id="ct"><div class="k1">DE LA</div><div class="k2">CRÉATION</div><div class="k3">À L’HÉRITAGE</div><div class="k4">Grandir. Être transformé. Hériter.</div><button class="cta" onclick="cineEnd(${re?1:0})"><span>${re?'Retour':'Découvrir'}</span><span>→</span></button></div>`;
+</svg></div><div class="ct" id="ct"><div class="k1">DE LA</div><div class="k2">CRÉATION</div><div class="k3">À L’HÉRITAGE</div><div class="k4">Naître et Grandir</div><div class="k4">Croix et Être transformé</div><div class="k4">Héritage</div><button class="cta" onclick="cineEnd(${re?1:0})"><span>${re?'Retour':'Découvrir'}</span><span>→</span></button></div>`;
 document.body.appendChild(d);
 const q=s=>d.querySelector(s),T=(s,kf,delay,dur,ease,it)=>q(s).animate(kf,{delay,duration:dur,fill:'both',easing:ease||'ease-out',iterations:it||1});
 const tx=[...d.querySelectorAll('.ct>*')];
-if(red){['#f4','#cr'].forEach(s=>q(s).style.opacity=1);q('#her').style.opacity=.6;q('#gl').style.opacity=.6;tx.forEach(e=>e.style.opacity=1);return}
+if(red){['#f4','#cr','#x2'].forEach(s=>q(s).style.opacity=1);q('#her').style.opacity=.6;q('#gl').style.opacity=.6;tx.forEach(e=>e.style.opacity=1);return}
 T('#gl',[{opacity:0},{opacity:.7,offset:.3},{opacity:.4,offset:.65},{opacity:.7}],0,2600,'ease-in-out',99);
 T('#f1',[{opacity:0,transform:'scale(.9)'},{opacity:1,transform:'scale(1)',offset:.35},{opacity:1,offset:.6},{opacity:0,transform:'scale(1.05)'}],100,1100);
 T('#f2',[{opacity:0,transform:'translateX(-14px)'},{opacity:1,offset:.3},{opacity:1,offset:.65},{opacity:0,transform:'translateX(14px)'}],800,1100);
@@ -256,10 +257,11 @@ T('#ry',[{opacity:0,transform:'rotate(0deg)'},{opacity:.9,offset:.3},{opacity:0,
 T('#fl',[{opacity:.95,transform:'scale(.2)'},{opacity:0,transform:'scale(7)'}],2550,800);
 T('#f4',[{opacity:0,transform:'translateY(-30px) scale(.8)'},{opacity:1,transform:'translateY(-8px) scale(1.03)',offset:.55},{opacity:1,transform:'translateY(0) scale(1)'}],2650,1000,'cubic-bezier(.2,.8,.2,1)');
 T('#her',[{opacity:0},{opacity:.8}],3000,900);
+T('#x2',[{opacity:0,transform:'scaleY(.2)'},{opacity:1,transform:'scaleY(1)'}],3050,700);
 T('#cr',[{opacity:0,transform:'translateY(-26px)'},{opacity:1,transform:'translateY(0)'}],3500,650,'cubic-bezier(.3,1.4,.5,1)');
 T('#sp',[{opacity:0,transform:'scale(.2)'},{opacity:1,transform:'scale(1)',offset:.4},{opacity:0,transform:'scale(1.8)'}],3900,700);
 [...d.querySelectorAll('#pt circle')].forEach((c,i)=>c.animate([{opacity:0,transform:'translateY(0)'},{opacity:.7,offset:.3},{opacity:0,transform:'translateY(-70px)'}],{delay:300+i*180,duration:2600,iterations:99,easing:'ease-out'}));
-tx.forEach((e,i)=>e.animate([{opacity:0,transform:'translateY(10px)'},{opacity:1,transform:'none'}],{delay:i<4?3700+i*140:4500,duration:600,fill:'both',easing:'ease-out'}));
+tx.forEach((e,i)=>e.animate([{opacity:0,transform:'translateY(10px)'},{opacity:1,transform:'none'}],{delay:i<6?3700+i*150:4700,duration:600,fill:'both',easing:'ease-out'}));
 }
 function intro(){cur=null;$.innerHTML=`<div class="intro"><div class="chain">Parcours biblique</div><h1 class="big">De la <i>création</i> à l’<i>héritage</i></h1><p class="mu lead">Découvre ton identité, ta position et ton héritage en YESHUA’H.<br>Un parcours en 6 étapes pour aller plus loin dans la Parole.</p><div class="tl">${ML(0).map(i=>`<div class="tp">${L[i].n}</div>`).join('')}</div><button class="cta" onclick="S.seen=1;save();home()"><span>Commencer</span><span>→</span></button><div class="mu" style="text-align:center;font-size:13px">10 à 20 minutes par niveau</div></div>`;window.scrollTo(0,0)}
 function render(){if(L[cur].jy)return jr();const l=L[cur],i=cur,P=S.p&&S.p[l.id]||{};if(step==3&&!(l.z&&l.z.length))step=4;if(step==6&&!l.vq)step=7;
