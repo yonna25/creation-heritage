@@ -14,7 +14,25 @@ body{margin:0;background:var(--bg);color:var(--tx);font:17px/1.6 Georgia,'Times 
 main{max-width:560px;margin:0 auto;padding:0 18px 110px;animation:in .35s ease}
 @keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){main{animation:none}*{transition:none!important}}
-h1{font-size:28px;line-height:1.2;margin:.3em 0;font-weight:500}.hq{font-size:32px;line-height:1.22;margin:18px 0 6px}h2{font-size:22px;margin:.4em 0;font-weight:500}
+h1{font-size:28px;line-height:1.2;margin:.3em 0;font-weight:500}.hq{font-size:32px;line-height:1.22;margin:18px 0 6px}
+#cine{position:fixed;inset:0;z-index:200;background:#0e0a07;color:#f4ead9;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;padding-top:env(safe-area-inset-top,0px)}
+#cine .cs{position:absolute;top:calc(env(safe-area-inset-top,0px) + 12px);right:16px;z-index:3;background:none;border:1px solid rgba(244,234,217,.3);color:#f4ead9;border-radius:20px;padding:6px 14px;font:14px Georgia,serif;width:auto;margin:0;opacity:.8}
+#cine .cb{width:100%;overflow:hidden;position:relative;opacity:0;transition:opacity 1.8s;-webkit-mask-image:linear-gradient(#000 74%,transparent);mask-image:linear-gradient(#000 74%,transparent)}
+#cine .cb.on{opacity:1}
+#cine .cb img{display:block;max-width:none;transform:translateX(0);transition:transform 3.4s cubic-bezier(.45,0,.2,1),filter 1.4s}
+#cine .cb img.gl{filter:brightness(1.22) saturate(1.1)}
+#cine .cc{position:relative;flex:none;height:250px;width:100%;max-width:560px;margin-top:6px}
+#cine .cp,#cine .ct{position:absolute;left:0;right:0;top:0;text-align:center;padding:0 22px;transition:opacity .8s}
+#cine .cp{opacity:0;font-size:28px;line-height:1.3;font-style:italic;letter-spacing:.01em;margin-top:6px}
+#cine .ct{opacity:0;pointer-events:none}
+#cine .ct.on{opacity:1;pointer-events:auto}
+#cine .ct .k1{font-size:14px;letter-spacing:.5em;color:#d9cdb8;margin-top:4px}
+#cine .ct .k2{font-size:46px;line-height:1.05;letter-spacing:.04em;color:#fff;font-weight:500}
+#cine .ct .k3{font-size:36px;line-height:1.1;letter-spacing:.03em;color:var(--ac);font-weight:500;margin-bottom:12px}
+#cine .ct .k4{font-size:15px;letter-spacing:.14em;color:#d9cdb8;margin-bottom:20px}
+#cine .ct button{max-width:300px;margin:0 auto}
+@media (prefers-reduced-motion:reduce){#cine *{transition:none!important}}
+h2{font-size:22px;margin:.4em 0;font-weight:500}
 .mu{color:var(--mu);font-size:15px}.chain{color:var(--ac);font-size:13px;letter-spacing:.06em}
 .card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:16px;margin:12px 0}
 .hero{padding:22px 20px;border-color:rgba(212,168,95,.45);margin:18px 0 10px}.hero h2{font-size:32px;margin:.15em 0}.hero .mu{font-size:16px;margin-bottom:6px}
@@ -124,7 +142,7 @@ const mq=M[m].q?`<h1 class="hq">${M[m].q}</h1>`:'';
 shell(mq+chips+`${nx!==undefined?`<div class="card hero"><div class="chain">Niveau ${ix.indexOf(nx)+1} sur ${ix.length}</div><h2>${L[nx].n}</h2><div class="mu">${L[nx].q}</div><button onclick="start(${nx})">${n?'Continuer le parcours':'Commencer le parcours'}</button></div>`:real?`<div class="card hero"><h2>${e(M[m].n)} terminé</h2><div class="mu">Tu as parcouru toutes les étapes de ce module.</div><button onclick="summary()">Voir ma synthèse</button></div>`:`<div class="card hero"><div class="chain">${e(M[m].n)}</div><h2>${e(M[m].t)}</h2><div class="mu">Ce module sera bientôt disponible.</div></div>`}
 <div>${ix.map(i=>i===nx?'':lvRow(i)).join('')}</div>
 <details class="set"><summary>Réglages</summary><div class="card"><b>Ton prénom (facultatif)</b><input id="nm" value="${e(S.name||'')}" placeholder="Prénom ou pseudo" onchange="S.name=this.value.trim();save()" style="width:100%;padding:10px;margin-top:6px;border:1px solid var(--bd);border-radius:12px;background:var(--bg)"><div class="note">Tes réponses et engagements sont transmis de façon confidentielle à l'équipe du parcours pour améliorer les contenus.</div></div>
-<button class="sec" onclick="reset()" style="font-size:14px">Réinitialiser ma progression</button></details>`,'p',nx)}
+<button class="sec" onclick="cine(1)" style="font-size:14px">Revoir l’introduction</button><button class="sec" onclick="reset()" style="font-size:14px">Réinitialiser ma progression</button></details>`,'p',nx)}
 function groups(){const G=GR();shell(`<h1>Groupes</h1><p class="mu">Échange et approfondis chaque module avec d'autres participants.</p>`+M.map((m,k)=>{const q=ML(k).filter(i=>!L[i].soon),d=q.filter(i=>S.done[L[i].id]).length,g=G[m.id]||{},t=ok(g.t),w=ok(g.w);return`<div class="card"><b>${e(m.n)} · ${e(m.t)}</b>`+(!q.length?'<div class="mu">À venir bientôt.</div>':d<q.length?`<div class="mu">Termine d'abord le module (${d}/${q.length} niveaux) pour accéder à ce groupe.</div>`:(!t&&!w?'<div class="mu">Bientôt disponible.</div>':(t?`<a class="btn" style="background:#5aa9e0" href="${e(g.t)}" target="_blank" rel="noopener">Telegram</a>`:'')+(w?`<a class="btn" style="background:#4caf7a" href="${e(g.w)}" target="_blank" rel="noopener">WhatsApp</a>`:'')))+'</div>'}).join(''),'g')}
 function summary(){const n=L.filter(l=>S.done[l.id]).length,full=false,all=L.length>0&&L.every(l=>!l.soon&&S.done[l.id]);cur=null;shell(`<h1>Ma synthèse</h1><p class="mu">${all?"Tu as parcouru toute la route de la création à l'héritage. Voici ce que tu retiens et ce que tu as décidé.":n?"Voici ce que tu retiens jusqu'ici.":"Ta synthèse apparaîtra ici dès ton premier niveau terminé."}</p>`+L.filter(l=>S.done[l.id]).map(l=>{const p=S.p[l.id];return`<div class="card"><b>${l.n}</b> ${(l.z||[]).length?`<span class="mu">· quiz ${p.sc}/${l.z.length}</span>`:''}<p><i>${e(p.s)}</i></p><p class="mu">Engagement : ${e(p.e)}</p>${p.u?`<p class="mu">Ma formulation : ${e(p.u)}</p>`:''}${l.nt&&l.df?`<p><b>${l.nt}</b> : ${l.df}</p>`:''}</div>`}).join('')+(full?`<div class="card"><div class="chain">${CH}</div>${L.filter(l=>l.m===0&&l.nt&&l.sq).map(l=>`<p><b>${l.nt}</b><br><span class="mu">${l.sq}</span></p>`).join('')}<p class="mu">Ces six notions forment une seule route : chacune prépare la suivante.</p></div><div class="syn">« J'ai appris une question que je dois désormais me poser. J'ai pris un engagement. Et si je veux aller plus loin, je peux le faire avec d'autres. »</div>`:''),'s')}
 function themes(v){cur=null;if(v!==undefined){S.cm=+v;save()}const m=cm(),ix=ML(m),real=ix.filter(i=>!L[i].soon).length;
@@ -204,6 +222,31 @@ const LK='<svg class="lk" viewBox="0 0 24 24" aria-label="Verrouillé"><rect x="
 const IC={p:'<circle cx="6" cy="18" r="2"/><circle cx="18" cy="6" r="2"/><path d="M8 18h5a3 3 0 0 0 0-6h-2a3 3 0 0 1 0-6h5"/>',s:'<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/>',t:'<path d="M4 6h16M4 12h16M4 18h10"/>',j:'<rect x="2" y="7" width="20" height="10" rx="5"/><path d="M7 10v4M5 12h4M16 11h.01M18 13h.01"/>',g:'<circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14a5 5 0 0 1 4 5"/>'};
 function shell(h,tab,hi){curTab=tab;const T=[['p','Parcours','home()'],['t','Thèmes','themes()'],['j','Jeux','games()'],['s','Synthèse','summary()'],['g','Groupes','groups()']];
 $.innerHTML=segs(hi)+h+`<div class="nav">${T.map(t=>`<div class="${t[0]==tab?'a':''}" onclick="${t[2]}"><svg viewBox="0 0 24 24">${IC[t[0]]}</svg>${t[1]}</div>`).join('')}</div>`;window.scrollTo(0,0)}
+
+let CT=[];
+function cineEnd(re){CT.forEach(clearTimeout);CT=[];const c=document.getElementById('cine');if(c)c.remove();S.cine=1;save();re?home():intro()}
+function cine(re){
+const sp=document.getElementById('splash');if(sp)sp.remove();
+const vw=innerWidth,vh=innerHeight,AR=1672/490,bh=Math.round(Math.max(Math.min(vh*.48,vh-330),vw/AR)),bw=Math.round(bh*AR),red=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const d=document.createElement('div');d.id='cine';
+d.innerHTML=`<button class="cs" onclick="cineEnd(${re?1:0})">Passer</button><div class="cb" style="height:${bh}px"><img src="cine.jpg" alt="" style="width:${bw}px;height:${bh}px"></div><div class="cc"><div class="cp" id="cp"></div><div class="ct" id="ct"><div class="k1">DE LA</div><div class="k2">CRÉATION</div><div class="k3">À L’HÉRITAGE</div><div class="k4">Grandir. Être transformé. Hériter.</div><button class="cta" onclick="cineEnd(${re?1:0})"><span>${re?'Retour':'Découvrir'}</span><span>→</span></button></div></div>`;
+document.body.appendChild(d);
+const cb=d.querySelector('.cb'),im=cb.querySelector('img'),cp=d.querySelector('#cp'),ct=d.querySelector('#ct');
+const tx=f=>Math.round(Math.min(0,Math.max(vw-bw,vw/2-f*bw)));
+const at=(t,fn)=>CT.push(setTimeout(fn,t));
+const pan=(f,s)=>{im.style.transitionDuration=s+'s,1.4s';im.style.transform=`translateX(${tx(f)}px)`};
+const cap=t=>{cp.style.opacity=0;at(450,()=>{cp.textContent=t;cp.style.opacity=1})};
+const fin=()=>{cp.style.opacity=0;ct.classList.add('on')};
+im.style.transform=`translateX(${tx(.09)}px)`;
+if(red){cb.classList.add('on');im.style.transform=`translateX(${tx(.8)}px)`;fin();return}
+at(200,()=>{cb.classList.add('on');cap('Un être est créé.')});
+at(4200,()=>{pan(.25,3.6);cap('Il grandit.')});
+at(8200,()=>{pan(.47,2.4);cap('Il rencontre la croix.')});
+at(10200,()=>im.classList.add('gl'));
+at(11200,()=>{pan(.72,1.8);cap('Il est transformé.');im.classList.remove('gl')});
+at(14000,()=>{pan(.9,3.6);cap('Il entre dans son héritage.')});
+at(18400,fin);
+}
 function intro(){cur=null;$.innerHTML=`<div class="intro"><div class="chain">Parcours biblique</div><h1 class="big">De la <i>création</i> à l’<i>héritage</i></h1><p class="mu lead">Découvre ton identité, ta position et ton héritage en YESHUA’H.<br>Un parcours en 6 étapes pour aller plus loin dans la Parole.</p><div class="tl">${ML(0).map(i=>`<div class="tp">${L[i].n}</div>`).join('')}</div><button class="cta" onclick="S.seen=1;save();home()"><span>Commencer</span><span>→</span></button><div class="mu" style="text-align:center;font-size:13px">10 à 20 minutes par niveau</div></div>`;window.scrollTo(0,0)}
 function render(){if(L[cur].jy)return jr();const l=L[cur],i=cur,P=S.p&&S.p[l.id]||{};if(step==3&&!(l.z&&l.z.length))step=4;if(step==6&&!l.vq)step=7;
 if(step==0)$.innerHTML=head(l,i,'La question clé')+`<h1>${l.q}</h1><p class="mu">Apprends à te poser cette question avant de chercher la réponse.</p><button onclick="go(1)">Découvrir →</button>`;
@@ -319,12 +362,12 @@ let tm;
 function sync(){const C=window.CFG;if(!C||!C.url||!PID||(!Object.keys(S.done).length&&!(S.p&&Object.keys(S.p).length)&&!(S.vp&&Object.keys(S.vp).length)))return;clearTimeout(tm);tm=setTimeout(async()=>{try{const r=await fetch(C.url+'/rest/v1/rpc/upsert_participant',{method:'POST',headers:Object.assign({apikey:C.key,'Content-Type':'application/json'},C.key.startsWith('sb_')?{}:{Authorization:'Bearer '+C.key}),body:JSON.stringify({p_id:PID,p_name:S.name||'',p_data:{done:S.done,p:S.p||{},vp:S.vp||{},pts:S.pts||0,bd:S.bd||{},days:S.days||[]}})});if(!r.ok)throw 0}catch(x){}},800)}
 addEventListener('online',sync);
 if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js'));
-(()=>{const sp=document.getElementById('splash');if(!sp)return;let d=0;const end=()=>{if(d)return;d=1;sp.classList.add('out');setTimeout(()=>sp.remove(),700)};
+(()=>{const sp=document.getElementById('splash');if(!sp)return;if(!S.seen){sp.remove();return}let d=0;const end=()=>{if(d)return;d=1;sp.classList.add('out');setTimeout(()=>sp.remove(),700)};
 try{if(sessionStorage.getItem('spl')||matchMedia('(prefers-reduced-motion:reduce)').matches){sp.remove();return}sessionStorage.setItem('spl','1')}catch(x){}
 sp.onclick=end;setTimeout(end,9400)})();
 try{const c=JSON.parse(localStorage.getItem('ceh_cat')||'null');if(c)applyCatalog(c)}catch(x){}
 (async()=>{const C=window.CFG;if(!C||!C.url)return;try{const r=await fetch(C.url+'/rest/v1/rpc/get_catalog',{method:'POST',headers:Object.assign({apikey:C.key,'Content-Type':'application/json'},C.key.startsWith('sb_')?{}:{Authorization:'Bearer '+C.key}),body:'{}'});if(!r.ok)return;const c=await r.json(),j=JSON.stringify(c);if(j===localStorage.getItem('ceh_cat'))return;localStorage.setItem('ceh_cat',j);applyCatalog(c);if(cur===null&&curTab&&document.querySelector('.nav'))({p:home,t:themes,j:games,s:summary,g:groups})[curTab]()}catch(x){}})();
-S.seen?home():intro();
+S.seen?home():cine();
 // Typographie française : « ! ? : ; » restent collés au mot qui précède (jamais seuls en début de ligne)
 (function(){const NB='\u00a0',fx=r=>{const w=document.createTreeWalker(r,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){const p=n.parentNode&&n.parentNode.nodeName;if(p=='TEXTAREA'||p=='SCRIPT'||p=='STYLE')continue;const t=n.nodeValue,u=t.replace(/ +(?=[!?:;»])/g,NB).replace(/(«) +/g,'$1'+NB);if(u!==t)n.nodeValue=u}};try{const a=document.getElementById('app');fx(a);new MutationObserver(()=>fx(a)).observe(a,{childList:true,subtree:true})}catch(x){}})();
 </script></body></html>

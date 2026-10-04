@@ -79,3 +79,7 @@ Les anciens modules 2 à 10 (Naître de nouveau, La consécration, etc.) sont su
 ## Accueil (v36)
 - Sur l'écran Parcours, la question du module s'affiche en gros caractères (classe `.hq`), au-dessus de la ligne « Module n · Titre changer ». Question d'Origine raccourcie : « Suis-je un simple produit de la biologie, ou créé par DIEU ? ». `CAT_V` = 36, cache `ceh-v36`.
 - Un bouton « Réinitialiser ma progression » existe déjà en bas de l'écran Parcours, dans « Réglages ».
+
+## Intro cinématique (v37)
+- `cine()` dans `index.html` : à la première ouverture (avant `S.seen`), panoramique sur `cine.jpg` (recadrage de l'image fournie, sans le titre incrusté) : « Un être est créé. / Il grandit. / Il rencontre la croix. / Il est transformé. / Il entre dans son héritage. », puis le titre « DE LA CRÉATION À L’HÉRITAGE » et « Grandir. Être transformé. Hériter. ». Bouton « Passer » à tout moment ; « Revoir l'introduction » dans Réglages. Mouvement réduit : affichage direct du titre. L'écran de démarrage SVG existant reste pour les ouvertures suivantes.
+- **Correction** : `sw.js` était vide dans les v34 à v36 (erreur d'écriture) ; restauré, cache `ceh-v37`, `cine.jpg` ajouté à la liste.
