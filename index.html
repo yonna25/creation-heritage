@@ -243,7 +243,7 @@ d.innerHTML=`<button class="cs" onclick="cineEnd(${re?1:0})">Passer</button><div
 <g id="sp" ${O(200,86)}><circle cx="200" cy="86" r="22" fill="url(#cr2)"/></g>
 <g id="fl" ${O(200,190)}><circle cx="200" cy="190" r="30" fill="url(#cr2)"/></g>
 <g id="pt" fill="#f6d98e">${[...Array(14)].map((_,i)=>`<circle cx="${30+(i*53)%340}" cy="${150+(i*37)%150}" r="${1+(i%3)*.6}" opacity="0"/>`).join('')}</g>
-</svg></div><div class="ct" id="ct"><div class="k1">DE LA</div><div class="k2">CRÉATION</div><div class="k3">À L’HÉRITAGE</div><div class="k4">Naître et Grandir</div><div class="k4">Croix et Être transformé</div><div class="k4">Héritage</div><button class="cta" onclick="cineEnd(${re?1:0})"><span>${re?'Retour':'Découvrir'}</span><span>→</span></button></div>`;
+</svg></div><div class="ct" id="ct"><div class="k1">DE LA</div><div class="k2">CRÉATION</div><div class="k3">À L’HÉRITAGE</div><div class="k4">Naître et Grandir</div><div class="k4">Croix et Être transformé</div><div class="k4">Héritier</div><button class="cta" onclick="cineEnd(${re?1:0})"><span>${re?'Retour':'Découvrir'}</span><span>→</span></button></div>`;
 document.body.appendChild(d);
 const q=s=>d.querySelector(s),T=(s,kf,delay,dur,ease,it)=>q(s).animate(kf,{delay,duration:dur,fill:'both',easing:ease||'ease-out',iterations:it||1});
 const tx=[...d.querySelectorAll('.ct>*')];
